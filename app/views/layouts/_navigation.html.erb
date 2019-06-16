@@ -20,19 +20,19 @@
                         <%= link_to "About", about_path, :class => 'nav-link' %>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                        <%= link_to "Events", events_path, :class => 'nav-link' %>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="leadership.html">Leadership</a>
+                        <%= link_to "Leadership", members_path, :class => 'nav-link' %>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="st_guides.html">Student Guides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="research/index.html">Research</a>
+                        <%= link_to "Research", econsiders_path, :class => 'nav-link' %>
                     </li>
                     <li class="nav-item" id="contact-btn-holder">
-                        <a class="nav-link" href="contact.html" id="contact-btn">Get in Touch</a>
+                        <%= link_to "Contact", contact_path, :class => 'nav-link', id: "contact-btn" %>
                     </li> 
                 </ul>
             </div> 
