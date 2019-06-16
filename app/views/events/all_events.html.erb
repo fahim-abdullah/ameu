@@ -1,0 +1,27 @@
+<% Event.all.each do | event | %>
+	<div class="jumbotron">
+		<p><%= event.id %></p>
+		<%= image_tag event.eventpic.url, width: "100px" %>
+		<p><%= event.datetime %></p>
+		<p><%= event.venue %></p>
+		<p><%= event.link %></p>
+
+		<%= link_to 'Edit', edit_event_path(event), class: 'btn btn-warning' %>
+		<%= link_to 'Show', event_path(event), class: 'btn btn-primary' %>
+		<%= link_to 'Delete', event_path(event), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+	</div>
+<% end %>
+
+<% Dialogue.all.each do | dialogue |%>
+	<div class="row">
+		<div class="jumbotron bg-success">
+			<p><%= dialogue.title %></p>
+			<%= image_tag dialogue.dialoguepic.url, width: "100px" %>
+			<p><%= dialogue.interviewee %></p>
+			<p><%= dialogue.video_link %></p>
+			<%= link_to 'Edit', edit_dialogue_path(dialogue), class: 'btn btn-warning' %>
+			<%= link_to 'Show', dialogue_path(dialogue), class: 'btn btn-primary' %>
+			<%= link_to 'Delete', dialogue_path(dialogue), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+		</div>
+	</div>
+<% end %>

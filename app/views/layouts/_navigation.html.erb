@@ -1,0 +1,41 @@
+<header>
+    <nav class="navbar navbar-expand-md fixed-top">
+        <div class="container">
+        <!-- Brand -->
+            <div id="logo">
+                
+                <%= image_tag("home/ameu-globe.png", width: "40px", class: "align-top", id: "logo-img")%>
+                <%= link_to "AMEU", root_path, :class => 'nav-link navbar-brand align-center' %>
+            </div>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="padding: 0">
+            <span class="navbar-toggler-icon"><%= image_tag("menu-ham.png", width: "100%" )%></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <%= link_to "About", about_path, :class => 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="leadership.html">Leadership</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="st_guides.html">Student Guides</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research/index.html">Research</a>
+                    </li>
+                    <li class="nav-item" id="contact-btn-holder">
+                        <a class="nav-link" href="contact.html" id="contact-btn">Get in Touch</a>
+                    </li> 
+                </ul>
+            </div> 
+        </div>
+    </nav>
+</header>
