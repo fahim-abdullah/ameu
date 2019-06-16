@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_134617) do
+ActiveRecord::Schema.define(version: 2019_06_16_171955) do
 
   create_table "dialogues", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 2019_06_16_134617) do
     t.string "eventpic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "region"
+    t.string "office"
+    t.string "name"
+    t.string "designation"
+    t.string "facebook"
+    t.string "linkedin"
+    t.string "twitter"
+    t.string "ig"
+    t.string "email"
+    t.string "profpic"
   end
 
 end
