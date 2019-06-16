@@ -92,7 +92,7 @@ a {
 }
 
 .home-img {
-    margin-top: 28%;
+    margin-top: 15%;
 }
 
 #landing {
@@ -555,7 +555,7 @@ footer .sub-heading {
     height: 600px;
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    /*background-attachment: fixed; */
     background-size: cover;
   
 }
@@ -642,6 +642,7 @@ footer .sub-heading {
     color: white;
     font-family: "Light";
     border-radius: 20px;
+    box-shadow: 0px 2px 4px grey;
 }
 
 #contact-page .btn-hover {

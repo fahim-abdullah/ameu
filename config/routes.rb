@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
 	root 'statics#home'
 	get 'about', to: 'statics#about'
+	get 'contact', to: 'statics#contact'
+	get 'thankyou', to: 'statics#thankyou'
 	get 'all_events', to: 'events#all_events'
 	get 'all_members', to: 'members#all_members'
 	get 'all_econsiders', to: 'econsiders#all_econsiders'
+
+
 
 
 	resources :events
