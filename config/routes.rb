@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 	resources :events
 	resources :dialogues
 	resources :members
+	resources :econsiders
 
 end

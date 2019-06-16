@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_171955) do
+ActiveRecord::Schema.define(version: 2019_06_16_184344) do
 
   create_table "dialogues", force: :cascade do |t|
     t.string "title"
     t.string "interviewee"
     t.string "video_link"
     t.string "dialoguepic"
+  end
+
+  create_table "econsiders", force: :cascade do |t|
+    t.string "title"
+    t.string "post_heading"
+    t.string "author"
+    t.text "post"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "postimg"
   end
 
   create_table "events", force: :cascade do |t|
