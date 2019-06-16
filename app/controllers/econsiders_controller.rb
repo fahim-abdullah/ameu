@@ -2,6 +2,7 @@ class EconsidersController < ApplicationController
 	before_action :set_timezone
 
 	def index
+		@econsiders = Econsider.all
 	end
 
 	def all
@@ -49,6 +50,6 @@ class EconsidersController < ApplicationController
 		Time.zone = "Kuala Lumpur"
 	end
 	def econsider_params 
-		params.require(:econsider).permit(:region, :office, :name, :designation, :facebook, :linkedin, :twitter, :ig, :email, :profpic)
+		params.require(:econsider).permit(:title, :post_heading, :postimg, :author, :post)
 	end
 end

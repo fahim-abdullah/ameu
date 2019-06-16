@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	get 'about', to: 'statics#about'
 	get 'all_events', to: 'events#all_events'
 	get 'all_members', to: 'members#all_members'
+	get 'all_econsiders', to: 'econsiders#all_econsiders'
 
 
 	resources :events

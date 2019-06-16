@@ -1,0 +1,29 @@
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+
+      <%= Econsider.all.each do |econsider| %>
+
+      <div class="post-preview">
+          <%= link_to econsider_path(econsider) do %>
+          <h2 class="post-title"><%= econsider.title %></h2>
+          <h3 class="post-subtitle"><%= econsider.post_heading %></h3>
+          <% end %>
+        
+        <p class="post-meta">Posted by <%= econsider.author %> on <%= econsider.created_at.strftime("%B %d, %Y") %></p>
+      </div>
+      <%= link_to 'Edit', edit_econsider_path(econsider), class: 'btn btn-warning' %>
+      <%= link_to 'Show', econsider_path(econsider), class: 'btn btn-primary' %>
+      <%= link_to 'Delete', econsider_path(econsider), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+      <hr>
+      
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('text').style.display = 'hidden';
+</script>
