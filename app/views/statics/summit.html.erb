@@ -34,10 +34,15 @@
 
 	.countdown {
 		border-radius: 1000px;
-		padding: 16px 40px 1px 5px;
+		padding: 16px 5px;
 		background-image: linear-gradient(90deg, #0029D5, #1E90FF);
 		color: white;
 	}
+
+	.countdown ul {
+			padding: 0;
+			margin: 0;
+		}
 
 	.countdown ul li {
 		list-style: none;
@@ -194,18 +199,43 @@
 		border-radius: 30px;
 		color: white;
 	}
+	@media only screen and (max-width: 600px) {
+		.sticky {
+			top: 59px;
+		}
+		.countdown {
+			padding: 8px 8px 12px 8px;
+		}
+
+		.countdown ul li {
+			padding: 1em 0.5em;
+		}
+
+		.card-body h4 {
+			font-size: 18px;
+		}
+
+		.card-body p {
+			font-size: 14px;
+		}
+
+		.sticky button {
+			background-color: white;
+		}
+
+	}
 </style>
 
 <div class="sticky col-12">Be a part today! <a href="#registration"><button>Register Now</button></a></div>
 <br><br>
 <div class="container-fluid" align="center">
 	
-	<div class="col-md-10 col-12 mt-4 mb-2">
-		<%= image_tag('summit/banner.jpg', class: "col-11 px-0 shadow")  %>
+	<div class="col-md-10 col-12 mt-4 mb-2" data-aos="zoom-out" data-aos-duration="1500">
+		<%= image_tag('summit/banner.jpg', class: "col-md-11 px-0 shadow banner")  %>
 	</div>
 	<br>
 	<div class="col-md-7 col-12 my-0">
-		<div class="jumbotron countdown" align="center">
+		<div class="jumbotron countdown" align="center" data-aos="zoom-out" data-aos-duration="200">
 			<ul>
 				<li><span id="days"></span>Days</li>
 			    <li><span id="hours"></span>Hours</li>
@@ -245,50 +275,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="container" id="last-year">
-	<div class="row">
-		<p class="col-12 dodgerblue bold pt-4 mb-2 mt-4 lead text-uppercase">LAST YEAR Summit</p>
-		<h1 class="col-12 demi">The Malaysian Project : Empowering Pioneers<br><span class="light" style="font-size: 32px;">11 August, 2018 | Sunway University</span></h1>	
-		<p class="col-12 lead mt-2">Last year’s AMEU Economics Summit welcomed 13 distinguished speakers such as Tan Sri Datin Paduka Sri Rafidah binti Aziz, Professor Tan Sri Dato’ Dr. Lin See-Yan and Dr. Richard Record. <br>
-		Link to last year’s AMEU Economics Summit: <a class="dodgerblue demi" target="_blank" href="https://www.facebook.com/events/1713654638750234/?ti=CL">Click here</a>.</p>
-	</div>	
-
-	<div class="row" align="center">
-		<div class="holder">
-			<div class="my-auto circle">
-				<h1 class="mb-0 dodgerblue">450</h1>
-				<p class="mb-0">Attendees</p>
-			</div>
-			<div class=" circle">
-				<h1 class="mb-0 dodgerblue">88%</h1>
-				<p class="mb-0">Positive Feedback</p>
-			</div>
-			<div class=" circle">
-				<h1 class="mb-0 dodgerblue">94%</h1>
-				<p class="mb-0">Expected Return Rate</p>
-			</div>
-		</div>
-	</div>
-	<div class="row mt-4" align="center">
-		<div class="col-md-6">
-			<%= image_tag('summit/p1.jpeg', class: "col px-0 shadow-sm")  %>
-		</div>
-		<div class="col-md-6">
-			<%= image_tag('summit/p2.jpeg', class: "col px-0 shadow-sm")  %>	
-		</div>
-	</div>
-</div>
-
-<div class="container-fluid text-white" id="reg-now">
-	<div class="row">
-		<h1 class="col-12 text-center demi mb-0">Join Our Event</h1>
-		<p class="col-md-7 lead text-center mx-auto my-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>	
-	</div>
-	<div class="row">
-		<button class="btn btn-lg mx-auto">Register Now</button>
-	</div>
-	
 </div>
 
 <div class="container" id="speakers">
@@ -355,12 +341,21 @@
 		<div class="holder back-black text-white col-md-9 mt-4 mb-0 rounded shadow p-4">
 			<h1 class="text-uppercase demi text-center mb-0">Announcing <span class="dodgerblue">More Speakers</span> Soon!</h1>
 		</div>
-		
+	</div>
+</div>
+
+<div class="container-fluid text-white" id="reg-now">
+	<div class="row">
+		<h1 class="col-12 text-center demi mb-0">Join Our Event</h1>
+		<p class="col-md-7 lead text-center mx-auto my-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>	
+	</div>
+	<div class="row">
+		<a href="#registration" class="mx-auto"><button class="btn btn-lg">Register Now</button></a>
 	</div>
 	
 </div>
 
-<div class="container py-5" id="itinery">
+<div class="container" id="itinery">
 	<div class="row mb-4">
 		<h1 class="col-12 demi">Event Itinery</h1>	
 	</div>
@@ -437,14 +432,48 @@
     </div>
 </div>
 
-<div class="container mb-4" id="sponsors">
+<div class="container" id="last-year">
+	<div class="row">
+		<p class="col-12 dodgerblue bold pt-4 mb-2 mt-4 lead text-uppercase">LAST YEAR Summit</p>
+		<h1 class="col-12 demi">The Malaysian Project : Empowering Pioneers<br><span class="light" style="font-size: 32px;">11 August, 2018 | Sunway University</span></h1>	
+		<p class="col-12 lead mt-2">Last year’s AMEU Economics Summit welcomed 13 distinguished speakers such as Tan Sri Datin Paduka Sri Rafidah binti Aziz, Professor Tan Sri Dato’ Dr. Lin See-Yan and Dr. Richard Record. <br>
+		Link to last year’s AMEU Economics Summit: <a class="dodgerblue demi" target="_blank" href="https://www.facebook.com/events/1713654638750234/?ti=CL">Click here</a>.</p>
+	</div>	
+
+	<div class="row" align="center">
+		<div class="holder">
+			<div class="my-auto circle">
+				<h1 class="mb-0 dodgerblue">450</h1>
+				<p class="mb-0">Attendees</p>
+			</div>
+			<div class=" circle">
+				<h1 class="mb-0 dodgerblue">88%</h1>
+				<p class="mb-0">Positive Feedback</p>
+			</div>
+			<div class=" circle">
+				<h1 class="mb-0 dodgerblue">94%</h1>
+				<p class="mb-0">Expected Return Rate</p>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-4" align="center">
+		<div class="col-md-6">
+			<%= image_tag('summit/p1.jpeg', class: "col py-2 px-0 shadow-sm")  %>
+		</div>
+		<div class="col-md-6">
+			<%= image_tag('summit/p2.jpeg', class: "col px-0 shadow-sm")  %>	
+		</div>
+	</div>
+</div>
+
+<div class="container mt-3 mb-0 py-4" id="sponsors">
 	<div class="row">
 		<h1 class="col-12 demi">Event Sponsors</h1>
 	</div>
 	<div class="row mt-4" align="center">
 		<div class="col-md-6">
 			<div class="jumbotron" id="venue">
-				<h2 class="light mb-3">Venue Sponsors</h2>
+				<h2 class="light mb-3">Venue Sponsor</h2>
 				<%= image_tag('summit/sunway.jpg', height: "80px", class: "px-0")  %>
 			</div>
 		</div>
@@ -473,7 +502,7 @@
 
 <div class="container" id="registration">
 	<div class="row">
-		<h1 class="col-12 demi pt-4 mb-0">Registration</h1>
+		<h1 class="col-12 demi mb-0">Registration</h1>
 		<p class="col-12 dodgerblue bold mb-2 mt-2 text-uppercase">AMEU ECONOMICS SUMMIT 2019 : Awakening the Malaysian Tiger</p>
 	</div>
 
@@ -503,11 +532,11 @@
 			</div>
 			<div class="col-md-12">
 				<label class="form-label medium lead">Year of Study : </label>
-	            <button class="btn border year-btn mx-2" id="y1">Year 1</button>
-	            <button class="btn border year-btn mx-2" id="y2">Year 1</button>
-	            <button class="btn border year-btn mx-2" id="y3">Year 1</button>
-	            <button class="btn border year-btn mx-2" id="y4">Year 1</button>
-	            <button class="btn border year-btn mx-2" id="na">N/A</button>
+	            <button class="btn border year-btn mx-2 my-1" id="y1">Year 1</button>
+	            <button class="btn border year-btn mx-2 my-1" id="y2">Year 2</button>
+	            <button class="btn border year-btn mx-2 my-1" id="y3">Year 3</button>
+	            <button class="btn border year-btn mx-2 my-1" id="y4">Year 4</button>
+	            <button class="btn border year-btn mx-2 my-1" id="na">N/A</button>
 	            <button class="year-btn active" hidden></button>
 	            <input type="text" id="year" hidden="true" required="true">
 			</div>
@@ -612,3 +641,5 @@
       document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
     }, second);
 </script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
