@@ -12,4 +12,7 @@ class StaticsController < ApplicationController
 	def thankyou
 	end
 
+	def summit
+	end
+
 end

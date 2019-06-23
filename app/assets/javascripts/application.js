@@ -20,4 +20,6 @@
 //= require particles
 //= require_tree .
 
-
+$ (function () {
+	AOS.init ();
+});

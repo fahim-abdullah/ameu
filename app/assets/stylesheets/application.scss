@@ -35,3 +35,48 @@
     src: url("/assets/AvenirNextLTPro-Demi.otf");
     font-family: "Demi";
 }
+
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Bold.otf");
+    font-family: "Bold";
+}
+
+.regular {
+    font-family: "Regular";
+}
+
+.medium {
+    font-family: "Medium";
+}
+
+.light {
+    font-family: "Light";
+}
+
+.demi {
+    font-family: "Demi";
+}
+
+.bold {
+    font-family: "Bold";
+}
+
+.back-green {
+    background-color: #12ce4a;
+}
+
+.back-red {
+    background-color: #FC354C;
+}
+
+.back-db {
+    background-color: dodgerblue;
+}
+
+.dodgerblue {
+    color: dodgerblue;
+}
+
+.back-black {
+    background-color: #222;
+}

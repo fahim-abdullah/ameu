@@ -2,7 +2,7 @@ class EconsidersController < ApplicationController
 	before_action :set_timezone
 
 	def index
-		@econsiders = Econsider.all
+		@econsiders = Econsider.all.order("created_at DESC")
 	end
 
 	def all

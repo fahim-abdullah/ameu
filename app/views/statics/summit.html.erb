@@ -1,0 +1,614 @@
+<style type="text/css">
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.active, .year-btn:hover {
+		background-color: #e2e2e2;
+		color: black;
+	}
+	.sticky {
+		position: -webkit-sticky;
+		position: fixed;
+		top: 85px;
+		background-image: linear-gradient(90deg, #0029D5, #1E90FF);
+		color: white;
+		padding: 8px 0;
+		font-size: 18px;
+		z-index: 999;
+		text-align: center;
+	}
+
+	.sticky button {
+		font-size: 16px;
+		border-radius: 99px;
+		padding: 3px 20px;
+		border: none;
+		transition: 0.3s;
+	}
+
+	.sticky button:hover {
+		color: white;
+		background-color: black;
+	}
+
+	.countdown {
+		border-radius: 1000px;
+		padding: 16px 40px 1px 5px;
+		background-image: linear-gradient(90deg, #0029D5, #1E90FF);
+		color: white;
+	}
+
+	.countdown ul li {
+		list-style: none;
+		display: inline-block;
+		padding: 1em 1.5em;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		float: none;
+		line-height: 35px;
+		text-transform: capitalize;
+	}
+	.countdown li span {
+		display: block;
+		font-size: 2.8rem;
+		font-family: "Demi";
+	}
+
+	#pni .jumbotron {
+		padding: 50px 35px;
+		background-color: white;
+		box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+		border-radius: 10px;
+	}
+
+	#pni .jumbotron p {
+		font-size: 16px;
+		font-family: "Light";
+	}
+
+	.holder {
+		width: auto;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.circle {
+		box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+		text-align: center;
+		width: 240px;
+		padding: 75px 0;
+		border-radius: 50%;
+		margin: 20px;
+		display: inline-block;
+	}
+
+	.circle h1 {
+		font-family: "Demi";
+		font-size: 54px;
+	}
+
+	.circle p {
+		font-family: "Medium";
+		font-size: 18px;
+	}
+
+	#reg-now {
+		padding: 80px 20px;
+		background-image: linear-gradient(90deg, #1E90FF, #0029D5);
+		margin: 60px 0;
+	}
+
+	#reg-now button {
+		border-radius: 99px;
+		padding: 6px 40px;
+		transition: 0.3s;
+		background-color: white;
+	}
+
+	#reg-now button:hover {
+		background-color: black;
+		color: white;
+	}
+
+	#speakers .card {
+		border-radius: 10px;
+	}
+
+	#speakers .card img {
+		border-top: 10px;
+	}
+
+	/* Timeline holder */
+	ul.timeline {
+	    list-style-type: none;
+	    position: relative;
+	    padding-left: 1.5rem;
+	}
+
+	 /* Timeline vertical line */
+	ul.timeline:before {
+	    content: ' ';
+	    background: #fff;
+	    display: inline-block;
+	    position: absolute;
+	    left: 16px;
+	    width: 4px;
+	    height: 100%;
+	    z-index: 400;
+	    border-radius: 1rem;
+	    box-shadow: 0 3px 3px rgba(0,0,0,0.2)
+	}
+
+	li.timeline-item {
+	    margin: 20px 0;
+	    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+	    border-radius: 20px;
+	}
+
+	/* Timeline item arrow */
+	.timeline-arrow {
+	    border-top: 0.5rem solid transparent;
+	    border-right: 0.5rem solid #fff;
+	    border-bottom: 0.5rem solid transparent;
+	    display: block;
+	    position: absolute;
+	    left: 2rem;
+	}
+
+	/* Timeline item circle marker */
+	li.timeline-item::before {
+	    content: ' ';
+	    background: dodgerblue;
+	    display: inline-block;
+	    position: absolute;
+	    border-radius: 50%;
+	    border: 3px solid #fff;
+	    left: 11px;
+	    width: 14px;
+	    height: 14px;
+	    z-index: 400;
+	    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	}
+
+	#sponsors .jumbotron {
+		padding: 40px;
+		margin: 10px 0;
+		background-color: white;
+		border-radius: 10px;
+		box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+		transition: 0.3s;
+	}
+	#sponsors .jumbotron:hover {
+		box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+		transform: scale(1.02);
+	}
+
+	#registration button {
+		border-color: transparent;
+	}
+
+	#event-notes {
+		padding: 40px;
+		background-image: linear-gradient(90deg, #1E90FF, #0029D5);
+		border-radius: 30px;
+		color: white;
+	}
+</style>
+
+<div class="sticky col-12">Be a part today! <a href="#registration"><button>Register Now</button></a></div>
+<br><br>
+<div class="container-fluid" align="center">
+	
+	<div class="col-md-10 col-12 mt-4 mb-2">
+		<%= image_tag('summit/banner.jpg', class: "col-11 px-0 shadow")  %>
+	</div>
+	<br>
+	<div class="col-md-7 col-12 my-0">
+		<div class="jumbotron countdown" align="center">
+			<ul>
+				<li><span id="days"></span>Days</li>
+			    <li><span id="hours"></span>Hours</li>
+			    <li><span id="minutes"></span>Minutes</li>
+			    <li><span id="seconds"></span>Seconds</li>
+			</ul>
+		</div>
+		<h2 class="mt-0 pt-0">The Grand Countdown</h2>
+	</div>
+</div>
+
+<div class="container mb-4">
+	<div class="row">
+		<p class="col-12 dodgerblue bold pt-4 mb-2 mt-4 lead text-uppercase">Awakening the Asian Tiger</p>
+		<h1 class="col-12 demi">AMEU Economics Summit 2019</h1>	
+		<p class="col-12 lead mt-2">In a visit last year, the World Bank’s Vice President for East Asia and Pacific Victoria Kwakwa said Malaysia is well on its way to cross the threshold into high-income and developed country status in the coming years. However, Malaysia has always been seen as a “tiger cub” economy, having the potential to become a developed country like Singapore and Japan, but falling slightly short. This year, the AMEU Economics Summit will discuss how Malaysia can become an Asian Tiger within the next few years. The summit will firstly focus on tackling domestic problems pertaining to wage stagnation and the middle-income trap. Secondly, we will discuss how Malaysia and ASEAN ought to position themselves on an international stage by tapping into the potential of the ASEAN digital  revolution. Overall, we aim to explore what it takes to make the Malaysian economy roar once more!</p>
+	</div>
+
+	<div class="row" id="pni">
+		<h2 class="col-12 medium mb-4">Panels and Interactive Sessions</h2>	
+		<div class="col-md-6">
+			<div class="jumbotron col">
+				<h3 class="demi"><span class="dodgerblue">Panel 1:</span> Tackling the Middle Income Trap and Wage Stagnation</h3>
+				<p>Based on data from the Statistics Departments’ Salaries and Wages Survey Report 2016, many Malaysians are still paid significantly lower than the desired amount to achieve their “minimum acceptable living standard”. This problem of internationally uncompetitive wages is exacerbated by  Malaysia’s heavy reliance on labour-intensive and low-end manufacturing industries while insufficient high-wage job creation continues to hamper Malaysia’s productivity growth by failing to attract high-skilled labour. These problems are features of the “middle-income trap” which is generally associated with the notion that countries get stuck in a certain range of income distribution and rarely manage to achieve high-income status. Hence, this panel will explore how Malaysia can escape from its middle-income economic trap and thrive by reforming productivity and living standards.</p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="jumbotron col">
+				<h3 class="demi"><span class="dodgerblue">Panel 2:</span> The ASEAN Digital Revolution</h3>
+				<p>Around the world, the digitalisation of the economy has redefined our daily lives, our businesses and our industries. This is an opportunity for ASEAN to be at the forefront of the global economy that is becoming increasingly digitised. According to a report by A.T. Kearney, ASEAN, as a single community, has the potential to become one of the top 5 digital economies in the world by 2025 as our large population of tech-savvy youth presents us with the chance to develop the ASEAN economy into a global powerhouse. The recent successes of businesses in the ASEAN digital market is only just the beginning. Hence, this panel aims to explore how Malaysia can play a pivotal role in pushing the region’s potential to greater heights.</p>
+			</div>
+		</div>
+		<div class="col-md-12" align="center">
+			<div class="jumbotron col">
+				<h3 class="demi dodgerblue">Interactive Sessions</h3>
+				<p style="font-size: 22px">Interactive sessions consist of activities such as workshops, case study challenges and dialogues, enabling participants to tailor their summit experience to their own interests. The topics covered may include gender equality, sustainability and also career advice. More details will be revealed soon!</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container" id="last-year">
+	<div class="row">
+		<p class="col-12 dodgerblue bold pt-4 mb-2 mt-4 lead text-uppercase">LAST YEAR Summit</p>
+		<h1 class="col-12 demi">The Malaysian Project : Empowering Pioneers<br><span class="light" style="font-size: 32px;">11 August, 2018 | Sunway University</span></h1>	
+		<p class="col-12 lead mt-2">Last year’s AMEU Economics Summit welcomed 13 distinguished speakers such as Tan Sri Datin Paduka Sri Rafidah binti Aziz, Professor Tan Sri Dato’ Dr. Lin See-Yan and Dr. Richard Record. <br>
+		Link to last year’s AMEU Economics Summit: <a class="dodgerblue demi" target="_blank" href="https://www.facebook.com/events/1713654638750234/?ti=CL">Click here</a>.</p>
+	</div>	
+
+	<div class="row" align="center">
+		<div class="holder">
+			<div class="my-auto circle">
+				<h1 class="mb-0 dodgerblue">450</h1>
+				<p class="mb-0">Attendees</p>
+			</div>
+			<div class=" circle">
+				<h1 class="mb-0 dodgerblue">88%</h1>
+				<p class="mb-0">Positive Feedback</p>
+			</div>
+			<div class=" circle">
+				<h1 class="mb-0 dodgerblue">94%</h1>
+				<p class="mb-0">Expected Return Rate</p>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-4" align="center">
+		<div class="col-md-6">
+			<%= image_tag('summit/p1.jpeg', class: "col px-0 shadow-sm")  %>
+		</div>
+		<div class="col-md-6">
+			<%= image_tag('summit/p2.jpeg', class: "col px-0 shadow-sm")  %>	
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid text-white" id="reg-now">
+	<div class="row">
+		<h1 class="col-12 text-center demi mb-0">Join Our Event</h1>
+		<p class="col-md-7 lead text-center mx-auto my-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>	
+	</div>
+	<div class="row">
+		<button class="btn btn-lg mx-auto">Register Now</button>
+	</div>
+	
+</div>
+
+<div class="container" id="speakers">
+	<div class="row mb-4">
+		<h1 class="col-12 demi mb-4">Our Honorable <span class="dodgerblue">Speakers</span></h1>	
+	</div>
+	<div class="row" align="center">
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>	
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-6">
+			<div class="card">
+				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
+				<div class="card-body pb-0">
+					<h4 class="demi dodgerblue mb-1">Justin Alexander</h4>
+					<p class="text-muted">Head of Product, AirAsia</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="holder back-black text-white col-md-9 mt-4 mb-0 rounded shadow p-4">
+			<h1 class="text-uppercase demi text-center mb-0">Announcing <span class="dodgerblue">More Speakers</span> Soon!</h1>
+		</div>
+		
+	</div>
+	
+</div>
+
+<div class="container py-5" id="itinery">
+	<div class="row mb-4">
+		<h1 class="col-12 demi">Event Itinery</h1>	
+	</div>
+	
+    <div class="row">
+        <div class="col-12 mx-auto">
+            
+            <!-- Timeline -->
+            <ul class="timeline">
+                <li class="timeline-item back-green text-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Registration</h2>
+                    <span class="lead"><i class="far fa-clock"></i> 9:00 AM - 9:00 AM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Opening Remarks and Welcoming Address</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 9:30 AM - 10:00 AM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Opening Keynote</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 10:00 AM - 10:35 AM</span>
+                </li>
+                <li class="timeline-item back-black text-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h4 class="demi">Break</h4>
+                    <span><i class="far fa-clock"></i> 10:35 AM - 10:45 AM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 px-4 py-5 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Panel 1: Tackling the Middle Income Trap and Wage Stagnation</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 10:45 AM - 12:00 PM</span>
+                </li>
+                <li class="timeline-item bg-light ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Networking Lunch</h2>
+                    <span><i class="far fa-clock"></i> 12:00 PM - 01:30 PM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Interactive Sessions</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 01:30 PM - 03:00 PM</span>
+                </li>
+                <li class="timeline-item back-black text-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h4 class="demi">Break</h4>
+                    <span><i class="far fa-clock"></i> 03:00 PM - 03:15 PM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 px-4 py-5 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Panel 2: The ASEAN Digital Revolution</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 03:15 PM - 04:30 PM</span>
+                </li>
+                <li class="timeline-item back-black text-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h4 class="demi">Break</h4>
+                    <span><i class="far fa-clock"></i> 04:30 PM - 04:40 PM</span>
+                </li>
+                <li class="timeline-item bg-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Closing Keynote</h2>
+                    <span class="lead dodgerblue"><i class="far fa-clock"></i> 04:40 PM - 05:15 PM</span>
+                </li>
+                <li class="timeline-item back-red text-white ml-3 p-4 my-2">
+                    <div class="timeline-arrow"></div>
+                    <h2 class="demi">Closing Ceremony</h2>
+                    <span class="lead"><i class="far fa-clock"></i> 05:15 PM - 05:30 PM</span>
+                </li>
+
+            </ul><!-- End -->
+
+        </div>
+    </div>
+</div>
+
+<div class="container mb-4" id="sponsors">
+	<div class="row">
+		<h1 class="col-12 demi">Event Sponsors</h1>
+	</div>
+	<div class="row mt-4" align="center">
+		<div class="col-md-6">
+			<div class="jumbotron" id="venue">
+				<h2 class="light mb-3">Venue Sponsors</h2>
+				<%= image_tag('summit/sunway.jpg', height: "80px", class: "px-0")  %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="jumbotron" id="platinum">
+				<h2 class="light mb-3" style="color: #A9A9A9;">Platinum Sponsors</h2>
+				<%= image_tag('summit/kpmg.png', height: "80px", class: "px-0")  %>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4" align="center" id="gold">
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h2 class="light mb-3" style="color: #FFCF40;">Gold Sponsors</h2>
+				<%= image_tag('summit/silverlake.png', height: "80px", class: "px-0")  %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="jumbotron" id="silver">
+				<h2 class="light mb-3" style="color: #777777">Silver Sponsors</h2>
+				<%= image_tag('summit/projek57.png', height: "80px", class: "px-0")  %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" id="registration">
+	<div class="row">
+		<h1 class="col-12 demi pt-4 mb-0">Registration</h1>
+		<p class="col-12 dodgerblue bold mb-2 mt-2 text-uppercase">AMEU ECONOMICS SUMMIT 2019 : Awakening the Malaysian Tiger</p>
+	</div>
+
+	<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location.replace('/thankyou');}"></iframe>
+
+	<form style="text-align: left" action="https://docs.google.com/forms/d/e/1FAIpQLSdG5--bhMYdpBNltl3c_K92ifyTJUzHCRX43MX6Q9EdpfjAOA/formResponse" target="hidden_iframe" onsubmit="submitted=true;" class="row mt-4" id="reg-form">
+		<div class="col-md-7 px-0">
+				<div class="col-md-12">
+				<label class="form-label medium lead my-2">Name</label>
+	            <input class="col-12 form-control" name="entry.2005620554" required/>
+			</div>
+	        <div class="col-md-12">
+	        	<div class="row">
+	        		<div class="col-6">
+	        			<label class="form-label medium lead my-2">Email</label>
+		        		<input class="col form-control" name="emailAddress" required/>
+	        		</div>
+	        		<div class="col-6">
+	        			<label class="form-label medium lead my-2">Mobile</label>
+		        		<input class="col form-control" name="entry.1166974658" required/>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="col-md-12">
+				<label class="form-label medium lead my-2">Institution or Company</label>
+	            <input class="col-12 form-control" name="entry.1065046570" required/>
+			</div>
+			<div class="col-md-12">
+				<label class="form-label medium lead">Year of Study : </label>
+	            <button class="btn border year-btn mx-2" id="y1">Year 1</button>
+	            <button class="btn border year-btn mx-2" id="y2">Year 1</button>
+	            <button class="btn border year-btn mx-2" id="y3">Year 1</button>
+	            <button class="btn border year-btn mx-2" id="y4">Year 1</button>
+	            <button class="btn border year-btn mx-2" id="na">N/A</button>
+	            <button class="year-btn active" hidden></button>
+	            <input type="text" id="year" hidden="true" required="true">
+			</div>
+
+			<div class="col-md-12">
+				<label class="form-label medium lead my-2">Industry / Course of Study</label>
+	            <input class="col-12 form-control" name="entry.1065046570" required/>
+			</div>
+			<div class="col-md-12">
+				<label class="form-label medium lead my-2">How did you hear about the event?</label>
+	            <select class="form-control" id="sel1">
+	            	<option disabled selected>Choose One</option>
+					<option>Word of Mouth</option>
+					<option>Social Media</option>
+					<option>Promotional Booth</option>
+					<option>Other</option>
+				</select>
+				<input type="text" id="heard" required="true" hidden="true">
+			</div>
+			<div class="col-md-12">
+				<button class="col btn-hover btn back-db text-white light uppercase py-2 my-2">SUBMIT</button>	
+			</div>
+		</div>
+		<div class="col-md-5 mt-2 py-0">
+                <div class="col-12 jumbotron" id="event-notes">
+                    <h2 class="demi text-center">Event Notables</h2>
+                    
+                    <div class="row mt-3">
+                    	<i class="fas fa-map-marker-alt col-1"></i>
+                    	<h6 class="col-11">Sunway University</h6>
+                    </div>
+                    <div class="row">
+                    	<i class="far fa-clock col-1"></i>
+                    	<h6 class="col-11">09:00 AM to 5:30 PM</h6>
+                    </div>
+                    <div class="row">
+                    	<i class="fas fa-calendar-day col-1"></i>
+                    	<h6 class="col-11">11 August, 2019</h6>
+                    </div>
+                </div>
+                
+            </div>
+		
+        
+        
+    </form>
+</div>
+
+<script type="text/javascript">
+	// Get the container element
+	var btnContainer = document.getElementById("reg-form");
+
+	// Get all buttons with class="btn" inside the container
+	var btns = btnContainer.getElementsByClassName("year-btn");
+
+	// Loop through the buttons and add the active class to the current/clicked button
+	for (var i = 0; i < btns.length; i++) {
+	  btns[i].addEventListener("click", function() {
+	    var current = document.getElementsByClassName("active");
+	    current[0].className = current[0].className.replace(" active", "");
+	    this.className += " active";
+	  });
+	}
+
+	$('#y1').on('click', function(){
+		$('#year').val("Year 1");
+	})
+	$('#y2').on('click', function(){
+		$('#year').val("Year 2");
+	})
+	$('#y3').on('click', function(){
+		$('#year').val("Year 3");
+	})
+	$('#y4').on('click', function(){
+		$('#year').val("Year 4");
+	})
+	$('#na').on('click', function(){
+		$('#year').val("N/A");
+	})
+
+	$("#sel1").change(function(){
+        $("#heard").val($('#sel1 option:selected').val())
+    });
+
+</script>
+
+
+<script type="text/javascript">
+	const second = 1000, 
+	minute = second * 60,
+	hour = minute * 60,
+	day = hour * 24;
+
+	let countDown = new Date('Aug 11, 2019 09:00:00').getTime(),
+	x = setInterval(function() {
+      let now = new Date().getTime(),
+      distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+      document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+    }, second);
+</script>

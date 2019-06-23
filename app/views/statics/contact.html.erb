@@ -12,18 +12,18 @@
                 onload="if(submitted) {window.location.replace('/thankyou');}"></iframe>
                 <form style="text-align: left" action="https://docs.google.com/forms/d/e/1FAIpQLSf6zzhj9NLmTQoOOZr0eDM6ITXe5r4t2ljnlDOYQqxQoTLqCQ/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
                     <label class="form-label">Name</label>
-                    <input class="col-12 form-control" name="entry.414285343" />
+                    <input class="col-12 form-control" name="entry.414285343" required/>
                     
                     <label class="form-label">Email</label>
-                    <input class="col-12 form-control" name="entry.903250240" />
+                    <input class="col-12 form-control" name="entry.903250240" type="email" required/>
                     
                     <label class="form-label">University</label>
-                    <input class="col-12 form-control" name="entry.426060372" />
+                    <input class="col-12 form-control" name="entry.426060372"  required="true" />
                     
                     <label class="form-label">Your Message</label>
-                    <textarea class="col-12 form-control" name="entry.212609032"></textarea>
+                    <textarea class="col-12 form-control" name="entry.212609032" required="true" ></textarea>
                     
-                    <button class="col btn btn-dark">Submit</button>
+                    <button class="col btn btn-dark py-2">Submit</button>
                 </form>
             </div>
             
