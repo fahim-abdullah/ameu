@@ -222,11 +222,10 @@
 		.sticky button {
 			background-color: white;
 		}
-
 	}
 </style>
 
-<div class="sticky col-12">Be a part today! <a href="#registration"><button>Register Now</button></a></div>
+<div class="sticky col-12">Sign Up today! <a href="#registration"><button>Register Now</button></a></div>
 <br><br>
 <div class="container-fluid" align="center">
 	
@@ -281,7 +280,7 @@
 	<div class="row mb-4">
 		<h1 class="col-12 demi mb-4">Our Honorable <span class="dodgerblue">Speakers</span></h1>	
 	</div>
-	<div class="row" align="center">
+	<!-- <div class="row" align="center">
 		<div class="col-md-4 col-6">
 			<div class="card">
 				<img class="card-img-top" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" alt="Card image cap">
@@ -336,10 +335,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
-		<div class="holder back-black text-white col-md-9 mt-4 mb-0 rounded shadow p-4">
-			<h1 class="text-uppercase demi text-center mb-0">Announcing <span class="dodgerblue">More Speakers</span> Soon!</h1>
+		<div class="holder back-black text-white col-md-9 mt-0 mb-2 rounded shadow p-4">
+			<h1 class="text-uppercase demi text-center mb-0">Announcing <span class="dodgerblue">Speakers</span> Soon!</h1>
 		</div>
 	</div>
 </div>
@@ -357,7 +356,7 @@
 
 <div class="container" id="itinery">
 	<div class="row mb-4">
-		<h1 class="col-12 demi">Event Itinery</h1>	
+		<h1 class="col-12 demi">Event Itinerary</h1>	
 	</div>
 	
     <div class="row">
@@ -435,7 +434,7 @@
 <div class="container" id="last-year">
 	<div class="row">
 		<p class="col-12 dodgerblue bold pt-4 mb-2 mt-4 lead text-uppercase">LAST YEAR Summit</p>
-		<h1 class="col-12 demi">The Malaysian Project : Empowering Pioneers<br><span class="light" style="font-size: 32px;">11 August, 2018 | Sunway University</span></h1>	
+		<h1 class="col-12 demi">The Malaysian Project : Empowering Pioneers<br><span class="light" style="font-size: 32px;">10 August, 2018 | Sunway University</span></h1>	
 		<p class="col-12 lead mt-2">Last year’s AMEU Economics Summit welcomed 13 distinguished speakers such as Tan Sri Datin Paduka Sri Rafidah binti Aziz, Professor Tan Sri Dato’ Dr. Lin See-Yan and Dr. Richard Record. <br>
 		Link to last year’s AMEU Economics Summit: <a class="dodgerblue demi" target="_blank" href="https://www.facebook.com/events/1713654638750234/?ti=CL">Click here</a>.</p>
 	</div>	
@@ -452,13 +451,13 @@
 			</div>
 			<div class=" circle">
 				<h1 class="mb-0 dodgerblue">94%</h1>
-				<p class="mb-0">Expected Return Rate</p>
+				<p class="mb-0">Would Return</p>
 			</div>
 		</div>
 	</div>
 	<div class="row mt-4" align="center">
 		<div class="col-md-6">
-			<%= image_tag('summit/p1.jpeg', class: "col py-2 px-0 shadow-sm")  %>
+			<%= image_tag('summit/p1.jpeg', class: "col px-0 shadow-sm")  %>
 		</div>
 		<div class="col-md-6">
 			<%= image_tag('summit/p2.jpeg', class: "col px-0 shadow-sm")  %>	
@@ -468,7 +467,7 @@
 
 <div class="container mt-3 mb-0 py-4" id="sponsors">
 	<div class="row">
-		<h1 class="col-12 demi">Event Sponsors</h1>
+		<h1 class="col-12 demi">Our <span class="dodgerblue">Sponsors</span> this Year</h1>
 	</div>
 	<div class="row mt-4" align="center">
 		<div class="col-md-6">
@@ -503,12 +502,12 @@
 <div class="container" id="registration">
 	<div class="row">
 		<h1 class="col-12 demi mb-0">Registration</h1>
-		<p class="col-12 dodgerblue bold mb-2 mt-2 text-uppercase">AMEU ECONOMICS SUMMIT 2019 : Awakening the Malaysian Tiger</p>
+		<p class="col-12 dodgerblue bold mb-2 mt-2 text-uppercase">AMEU ECONOMICS SUMMIT 2019 : Awakening the Asian Tiger</p>
 	</div>
 
 	<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location.replace('/thankyou');}"></iframe>
 
-	<form style="text-align: left" action="https://docs.google.com/forms/d/e/1FAIpQLSdG5--bhMYdpBNltl3c_K92ifyTJUzHCRX43MX6Q9EdpfjAOA/formResponse" target="hidden_iframe" onsubmit="submitted=true;" class="row mt-4" id="reg-form">
+	<form style="text-align: left" action="https://docs.google.com/forms/d/e/1FAIpQLSdG5--bhMYdpBNltl3c_K92ifyTJUzHCRX43MX6Q9EdpfjAOA/formResponse" target="hidden_iframe" onsubmit="submitted=true;" class="row mt-3" id="reg-form">
 		<div class="col-md-7 px-0">
 				<div class="col-md-12">
 				<label class="form-label medium lead my-2">Name</label>
@@ -518,7 +517,7 @@
 	        	<div class="row">
 	        		<div class="col-6">
 	        			<label class="form-label medium lead my-2">Email</label>
-		        		<input class="col form-control" name="emailAddress" required/>
+		        		<input class="col form-control" name="entry.432996436" required/>
 	        		</div>
 	        		<div class="col-6">
 	        			<label class="form-label medium lead my-2">Mobile</label>
@@ -538,12 +537,12 @@
 	            <button class="btn border year-btn mx-2 my-1" id="y4">Year 4</button>
 	            <button class="btn border year-btn mx-2 my-1" id="na">N/A</button>
 	            <button class="year-btn active" hidden></button>
-	            <input type="text" id="year" hidden="true" required="true">
+	            <input type="text" name="entry.181018478" id="year" hidden="true" required="true">
 			</div>
 
 			<div class="col-md-12">
 				<label class="form-label medium lead my-2">Industry / Course of Study</label>
-	            <input class="col-12 form-control" name="entry.1065046570" required/>
+	            <input class="col-12 form-control" name="entry.662357333" required/>
 			</div>
 			<div class="col-md-12">
 				<label class="form-label medium lead my-2">How did you hear about the event?</label>
@@ -554,34 +553,30 @@
 					<option>Promotional Booth</option>
 					<option>Other</option>
 				</select>
-				<input type="text" id="heard" required="true" hidden="true">
+				<input type="text" name="entry.839337160" id="heard" required="true" hidden="true">
 			</div>
 			<div class="col-md-12">
-				<button class="col btn-hover btn back-db text-white light uppercase py-2 my-2">SUBMIT</button>	
+				<button class="col btn-hover btn back-db text-white light uppercase py-2 my-2" type="submit">SUBMIT</button>	
 			</div>
 		</div>
 		<div class="col-md-5 mt-2 py-0">
-                <div class="col-12 jumbotron" id="event-notes">
-                    <h2 class="demi text-center">Event Notables</h2>
-                    
-                    <div class="row mt-3">
-                    	<i class="fas fa-map-marker-alt col-1"></i>
-                    	<h6 class="col-11">Sunway University</h6>
-                    </div>
-                    <div class="row">
-                    	<i class="far fa-clock col-1"></i>
-                    	<h6 class="col-11">09:00 AM to 5:30 PM</h6>
-                    </div>
-                    <div class="row">
-                    	<i class="fas fa-calendar-day col-1"></i>
-                    	<h6 class="col-11">11 August, 2019</h6>
-                    </div>
-                </div>
+            <div class="col-12 jumbotron" id="event-notes">
+                <h2 class="demi text-center">Event Notables</h2>
                 
+                <div class="row mt-3">
+                	<i class="fas fa-map-marker-alt col-1"></i>
+                	<h6 class="col-11">Sunway University</h6>
+                </div>
+                <div class="row">
+                	<i class="far fa-clock col-1"></i>
+                	<h6 class="col-11">09:00 AM to 5:30 PM</h6>
+                </div>
+                <div class="row">
+                	<i class="fas fa-calendar-day col-1"></i>
+                	<h6 class="col-11">10 August, 2019</h6>
+                </div>
             </div>
-		
-        
-        
+        </div>
     </form>
 </div>
 
@@ -623,14 +618,13 @@
 
 </script>
 
-
 <script type="text/javascript">
 	const second = 1000, 
 	minute = second * 60,
 	hour = minute * 60,
 	day = hour * 24;
 
-	let countDown = new Date('Aug 11, 2019 09:00:00').getTime(),
+	let countDown = new Date('Aug 10, 2019 09:00:00').getTime(),
 	x = setInterval(function() {
       let now = new Date().getTime(),
       distance = countDown - now;

@@ -4,8 +4,9 @@
         <!-- Brand -->
             <div id="logo">
                 
-                <%= image_tag("home/ameu-globe.png", width: "40px", class: "align-top", id: "logo-img")%>
-                <%= link_to "AMEU", root_path, :class => 'nav-link navbar-brand align-center' %>
+                <%#= image_tag("home/ameu-globe.png", width: "40px", class: "align-top", id: "logo-img")%>
+                <img src="https://static.wixstatic.com/media/57a846_851479d534164842a7b6e99fb8901958~mv2.png/v1/fill/w_620,h_172,al_c,q_80,usm_0.66_1.00_0.01/57a846_851479d534164842a7b6e99fb8901958~mv2.webp" width="130px" class="align-top" id="logo-img">
+                <%#= link_to "AMEU", root_path, :class => 'nav-link navbar-brand align-center' %>
             </div>
 
             <!-- Toggler/collapsibe Button -->
@@ -26,7 +27,7 @@
                         <%= link_to "Leadership", members_path, :class => 'nav-link' %>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="st_guides.html">Student Guides</a>
+                        <a class="nav-link">Student Guides</a>
                     </li>
                     <li class="nav-item">
                         <%= link_to "Research", econsiders_path, :class => 'nav-link' %>
