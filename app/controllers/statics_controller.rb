@@ -1,5 +1,5 @@
 class StaticsController < ApplicationController
-	before_action :red, except: [:thankyou, :summit, :under_development]
+	before_action :red, except: [:thankyou, :summit, :under_development, :contact]
 	def home 
 	end
 

@@ -199,16 +199,26 @@
 		border-radius: 30px;
 		color: white;
 	}
+
+	.panel {
+		height: 540px;
+	}
 	@media only screen and (max-width: 600px) {
 		.sticky {
-			top: 59px;
+			top: 50px;
 		}
 		.countdown {
-			padding: 8px 8px 12px 8px;
+			padding: 12px 8px 8px 8px;
 		}
 
 		.countdown ul li {
-			padding: 1em 0.5em;
+			padding: 0.5em 0.5em;
+			line-height: 20px;
+			font-size: 12px;
+		}
+
+		.countdown ul li span {
+			font-size: 24px;
 		}
 
 		.card-body h4 {
@@ -222,6 +232,9 @@
 		.sticky button {
 			background-color: white;
 		}
+		.panel {
+			height: auto;
+		}
 	}
 </style>
 
@@ -230,7 +243,7 @@
 <div class="container-fluid" align="center">
 	
 	<div class="col-md-10 col-12 mt-4 mb-2" data-aos="zoom-out" data-aos-duration="1500">
-		<%= image_tag('summit/banner.jpg', class: "col-md-11 px-0 shadow banner")  %>
+		<%= image_tag('summit/banner.webp', class: "col-md-11 px-0 shadow banner")  %>
 	</div>
 	<br>
 	<div class="col-md-7 col-12 my-0">
@@ -256,13 +269,13 @@
 	<div class="row" id="pni">
 		<h2 class="col-12 medium mb-4">Panels and Interactive Sessions</h2>	
 		<div class="col-md-6">
-			<div class="jumbotron col">
+			<div class="jumbotron col panel">
 				<h3 class="demi"><span class="dodgerblue">Panel 1:</span> Tackling the Middle Income Trap and Wage Stagnation</h3>
 				<p>Based on data from the Statistics Departments’ Salaries and Wages Survey Report 2016, many Malaysians are still paid significantly lower than the desired amount to achieve their “minimum acceptable living standard”. This problem of internationally uncompetitive wages is exacerbated by  Malaysia’s heavy reliance on labour-intensive and low-end manufacturing industries while insufficient high-wage job creation continues to hamper Malaysia’s productivity growth by failing to attract high-skilled labour. These problems are features of the “middle-income trap” which is generally associated with the notion that countries get stuck in a certain range of income distribution and rarely manage to achieve high-income status. Hence, this panel will explore how Malaysia can escape from its middle-income economic trap and thrive by reforming productivity and living standards.</p>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="jumbotron col">
+			<div class="jumbotron col panel">
 				<h3 class="demi"><span class="dodgerblue">Panel 2:</span> The ASEAN Digital Revolution</h3>
 				<p>Around the world, the digitalisation of the economy has redefined our daily lives, our businesses and our industries. This is an opportunity for ASEAN to be at the forefront of the global economy that is becoming increasingly digitised. According to a report by A.T. Kearney, ASEAN, as a single community, has the potential to become one of the top 5 digital economies in the world by 2025 as our large population of tech-savvy youth presents us with the chance to develop the ASEAN economy into a global powerhouse. The recent successes of businesses in the ASEAN digital market is only just the beginning. Hence, this panel aims to explore how Malaysia can play a pivotal role in pushing the region’s potential to greater heights.</p>
 			</div>
@@ -457,10 +470,10 @@
 	</div>
 	<div class="row mt-4" align="center">
 		<div class="col-md-6">
-			<%= image_tag('summit/p1.jpeg', class: "col px-0 shadow-sm")  %>
+			<%= image_tag('summit/p1.webp', class: "col px-0 shadow-sm")  %>
 		</div>
 		<div class="col-md-6">
-			<%= image_tag('summit/p2.jpeg', class: "col px-0 shadow-sm")  %>	
+			<%= image_tag('summit/p2.webp', class: "col px-0 shadow-sm")  %>	
 		</div>
 	</div>
 </div>
@@ -473,7 +486,7 @@
 		<div class="col-md-6">
 			<div class="jumbotron" id="venue">
 				<h2 class="light mb-3">Venue Sponsor</h2>
-				<%= image_tag('summit/sunway.jpg', height: "80px", class: "px-0")  %>
+				<%= image_tag('summit/sunway.webp', height: "80px", class: "px-0")  %>
 			</div>
 		</div>
 		<div class="col-md-6">
