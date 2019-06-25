@@ -15,9 +15,7 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require particles
 //= require_tree .
 
 $ (function () {

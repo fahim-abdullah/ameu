@@ -1,3 +1,28 @@
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Light.otf");
+    font-family: "Light";
+}
+
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Regular.otf");
+    font-family: "Regular";
+}
+
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Medium.otf");
+    font-family: "Medium";
+}
+
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Demi.otf");
+    font-family: "Demi";
+}
+
+@font-face {
+    src: url("/assets/AvenirNextLTPro-Bold.otf");
+    font-family: "Bold";
+}
+
 html, body {
     height: 100%;
 }
