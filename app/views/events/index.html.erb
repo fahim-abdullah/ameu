@@ -16,101 +16,65 @@
         </div>
     </div>
 
+    <!-- Upcoming -->
+
     <section id="upcoming" class="tabcontent">
         <div class="row">
+
+            <% if @upcoming.present? %>
+            <% @upcoming.each do | event | %>
             <div class="col-md-4 col-12">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="event-1.png" alt="Card image cap" height="160px" width="100%">
+                    <%= image_tag(event.eventpic.url, class: "card-img-top img-fluid", height: "160px", width: "100%") %>
                     <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">Warwick Economics Summit</h5>
-                        <p class="card-text-when">Monday, 17 May, 9:00am</p>
-                        <p class="card-text-venue">Student Hall, Webster Vienna Private University</p>
-
+                        <h5 class="card-title"><%= event.title%></h5>
+                        <p class="card-text-when"><%= event.datetime.to_datetime.strftime("%A, %b %m - %I:%M %p") %>
+                        </p>
+                        <p class="card-text-venue"><%= event.venue %></p>
                     </div>
                     <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
+                        <%= link_to "Find Out More!", event.link, class: "col btn text-white", target: "_blank" %>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="event-7.png" alt="Card image cap" height="160px" width="100%">
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">AMEU Economics Summit</h5>
-                        <p class="card-text-when">Wednesday, 11 August, 9:00am</p>
-                        <p class="card-text-venue">Sunway University</p>
+            <% end %>
 
-                    </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="event-4.png" alt="Card image cap" height="160px" width="100%">
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">National Economics Summit</h5>
-                        <p class="card-text-when">Monday, 17 September, 9:00pm</p>
-                        <p class="card-text-venue">Sequoia Hotel</p>
+            <% else %>
 
-                    </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
-                    </div>
-                </div>
+            <div class="col-12 shadow-sm jumbotron bg-light py-4">
+                <h3 class="light">Hey there... We do not have any upcoming events. Stay tuned and feel free to check our previous events!</h3>    
             </div>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="event-2.png" alt="Card image cap" height="160px" width="100%">
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">Economics Summit MIAMI</h5>
-                        <p class="card-text-when">Monday, 19 January, 9:00pm</p>
-                        <p class="card-text-venue">University of Miami</p>
-
-                    </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
-                    </div>
-                </div>
-            </div>
+            
+            <% end %>
         </div>
     </section>
+
+    <!-- Past -->
     <section id="past" class="tabcontent">
         <div class="row">
+            <% @past.each do | event | %>
             <div class="col-md-4 col-12">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="event-6.png" alt="Card image cap" height="160px" width="100%">
+                    <%= image_tag(event.eventpic.url, class: "card-img-top img-fluid", height: "160px", width: "100%") %>
                     <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">helloTomorrow Global Summit</h5>
-                        <p class="card-text-when">Monday, 17 May, 9:00pm</p>
-                        <p class="card-text-venue">Grand Ballroom, Pentagon</p>
-
+                        <h5 class="card-title"><%= event.title%></h5>
+                        <p class="card-text-when"><%= event.datetime.to_datetime.strftime("%A, %b %m - %I:%M %p") %>
+                        </p>
+                        <p class="card-text-venue"><%= event.venue %></p>
                     </div>
                     <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
+                        <%= link_to "Find Out More!", event.link, class: "col btn text-white", target: "_blank" %>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="event-3.png" alt="Card image cap" height="160px" width="100%">
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title">Economics Summit at Warwick</h5>
-                        <p class="card-text-when">Monday, 19 May, 9:00pm</p>
-                        <p class="card-text-venue">Webster Vienna Private University</p>
-
-                    </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <button class="col btn text-white">Find Out More!</button>
-                    </div>
-                </div>
-            </div>
+            <% end %>
         </div>
     </section>
+    <div class="row">
+        <hr class="col-md-4 col-6 pt-3 pb-3">    
+    </div>
     
-    
-    <h1 class="section-heading col-12">Talk with International Advisory Council</h1>
+    <h1 class="section-heading col-12 pt-0 mt-0">Talk with International Advisory Council</h1>
     
     <div class="row">
         <div class=" col-12">

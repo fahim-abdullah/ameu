@@ -1,6 +1,6 @@
 class EconsidersController < ApplicationController
 	before_action :set_timezone
-	before_action :red
+	# before_action :red
 
 	def index
 		@econsiders = Econsider.all.order("created_at DESC")

@@ -1,6 +1,6 @@
 class DialoguesController < ApplicationController
 	before_action :set_timezone
-	before_action :red
+	# before_action :red
 
 	def index
 	end

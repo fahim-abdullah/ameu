@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
 	before_action :set_timezone
-	before_action :red
+	# before_action :red
 
 	def index
+		@upcoming = Event.where('datetime > ?', Time.now)
+		@past = Event.where('datetime < ?', Time.now)
 	end
 
 	def all
@@ -12,6 +14,7 @@ class EventsController < ApplicationController
 
 	def new 
 		@event = Event.new
+		redirect_to all_events_path
 	end
 
 	def create
