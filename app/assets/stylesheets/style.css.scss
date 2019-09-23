@@ -34,29 +34,30 @@ section {
 body {
     font-family: "Regular";
     margin: 0;
-    padding-top: 80px;
+    padding: 0;
+    /*padding-top: 80px;*/
 }
 
-#logo-img {
+#navbar-old #logo-img {
     margin-right: 5px;
 }
 
-nav {
+#navbar-old nav {
     box-shadow: 0 1px 4px rgba(0,0,0, 0.08);
     background-color: white;
 }
 
-#collapsibleNavbar {
+#navbar-old #collapsibleNavbar {
     padding: 10px 0;
 }
 
-.navbar-brand {
+#navbar-old .navbar-brand {
     color: #02006C;
     margin-top: 2%;
     font-family: "Demi";
 }
 
-.nav-item {
+#navbar-old .nav-item {
     font-family: "Medium";
     color: black;
     padding: 6px 10px;
@@ -66,15 +67,15 @@ nav {
     text-decoration: none;
 }
 
-.nav-item:hover {
+#navbar-old .nav-item:hover {
     transform: scale(1.15);
 }
 
-.nav-link {
+#navbar-old .nav-link {
     transition: 0.2s;
 }
 
-.nav-link:hover {
+#navbar-old .nav-link:hover {
     color: dodgerblue;
 }
 
@@ -84,7 +85,7 @@ nav {
 }
 */
 
-#contact-btn {
+#navbar-old #contact-btn {
     background-color: dodgerblue;
     border-radius: 99px;
     width: auto;
@@ -93,11 +94,11 @@ nav {
     padding: 6px 20px;
 }
 
-#contact-btn-holder:hover {
+#navbar-old #contact-btn-holder:hover {
     transform: scale(1.1);
 }
 
-a {
+#navbar-old a {
     color: black;
 }
 
@@ -388,94 +389,6 @@ a {
     margin-bottom: 60px;
 }
 
-footer {
-    background-color: #111;
-    color: white;
-/*    height: 200px;*/
-    padding: 40px 0 30px 0;
-    font-family: "Light";
-    margin-top: 60px;
-}
-
-.social-holder {
-    display: block;
-    width: auto;
-}
-
-.socials {
-    display: inline-block;
-/*    padding: 20px;*/
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    padding: 12px;
-    border-radius: 50%;
-    font-size: 20px;
-    margin: 0 10px 0 0;
-    transition: 0.2s;
-    background-color: white;
-    color: black;
-}
-
-.socials:hover {
-/*    background-color: black;*/
-    color: white;
-    transform: scale(1.15);
-}
-
-.facebook {
-    color: #3b5998;
-}
-
-.facebook:hover {
-    background-color: #3b5998;
-}
-
-.instagram {
-    color: #FD1D1D;
-}
-
-.instagram:hover {
-    background-color: #FD1D1D;
-}
-
-.linkedin {
-    color: #0077B5;
-}
-
-.linkedin:hover {
-    background-color: #0077B5;
-}
-
-.credits {
-    text-align: right;
-    padding-top: 0px;
-}
-
-.credits p {
-    margin-bottom: 0;
-    font-size: 14px;
-}
-
-footer hr {
-    background-color: white;
-    opacity: 0.3;
-    margin: 10px 0;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0px;
-}
-
-footer ul li {
-    font-family: "Light";
-}
-
-footer .sub-heading {
-    padding-top: 20px;
-}
-
 .event-btn-holder *{
     display: inline;
     margin: 40px 0;
@@ -483,12 +396,13 @@ footer .sub-heading {
 
 .event-status {
     font-size: 18px;
-    padding: 6px 0px;
+    padding: 10px 0px;
     border-radius: 99px;
     outline: none;
     border: 1px solid black;
     background-color: white;
     color: black;
+    font-family: "Medium";
 }
 
 .event-status:hover {
@@ -535,6 +449,7 @@ footer .sub-heading {
     font-size: 20px;
     margin: 0;
     margin-top: 15px;
+    color: #222;
 }
 
 .member-title {
@@ -562,8 +477,8 @@ footer .sub-heading {
     text-shadow: 0 1px 2px #d2d2d2;
 }
 
-#uk-ireland .general-heading {
-    margin: 20px 0 24px 0;
+#uk-ireland .general-heading, #malaysia .general-heading {
+    margin: 20px 0 25px 0;
 }
 
 #leadership-top-holder .heading-holder, #leadership-home .heading-holder {
@@ -687,3 +602,4 @@ footer .sub-heading {
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     border-radius: 20px;
 }
+

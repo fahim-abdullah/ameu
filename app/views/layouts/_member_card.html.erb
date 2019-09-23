@@ -1,0 +1,28 @@
+<div class="col-md-3 col-12">
+    <div class="card member-card" align="center">
+        <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+        <p class="member-name"><%= "#{member.name}"%></p>
+        <p class="member-title"><%= member.designation %></p>
+        <div class="member-social">
+            <p>
+                <% if member.facebook.length > 1 %>
+                <%= link_to "#{member.facebook}" do %>
+                    <i class="fab fa-facebook-f"></i>
+                <% end %>
+                <% end %>
+
+                <% if member.linkedin.length > 1 %>
+                <%= link_to "#{member.linkedin}" do %>
+                    <i class="fab fa-linkedin-in"></i>
+                <% end %>
+                <% end %>
+
+                <% if member.email.length > 1 %>
+                <%= mail_to "#{member.email}" do %>
+                    <i class="far fa-envelope"></i>
+                <% end %>
+                <% end %>
+            </p>
+        </div>
+    </div>
+</div>

@@ -3,6 +3,8 @@ class MembersController < ApplicationController
 	# before_action :red
 
 	def index
+		@uk = Member.all.where("region = 'UK'")
+		@my = Member.all.where("region = 'MY'")
 	end
 
 	def all

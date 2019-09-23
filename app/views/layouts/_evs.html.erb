@@ -1,0 +1,25 @@
+<div class="row">
+    <% Event.all.each do | event | %>
+        <% if event.datetime.to_time > Time.now %>
+        <div class="col-sm-6">
+            <div class="single_event media">
+                <%= image_tag event.eventpic.url, width: "225px", class: "align-self-center" %>
+                <div class="tricker"><%= event.datetime.to_time.strftime("%I:%M %p") %></div>
+                <div class="media-body align-self-center">
+                    <h5 class="mt-0"><%= event.title %></h5>
+                    <p><i class="fas fa-map-marker-alt"></i> <%= event.venue %></p>
+                    <ul>
+                        <li><span><%= event.datetime.to_time.strftime("%d %b %Y") %></span>Date</li>
+                        <li><span><%= event.datetime.to_time.strftime("%A") %></span>Day</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <% else %>
+        <div class="col-sm-12 my-0">
+            <h2 class="text-center py-4 bg-light shadow-sm rounded">No Upcoming Events</h2>
+        </div>
+
+        <% end %>
+    <% end %>
+</div>

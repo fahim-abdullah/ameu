@@ -1,9 +1,10 @@
+<div class="jumbotron">
 <%= form_for @event do |f| %>
 
     <label>Title</label>
     <%= f.text_field :title, class: "col-md-2 col form-control" %>
 
-    <label>Image</label>
+    <label>Image - Must be Square Ratio [1:1] </label>
     <%= f.file_field :eventpic, class: "col-md-2 col form-control" %>
 
     <label>Datetime</label>
@@ -19,3 +20,4 @@
     <%= link_to "Back", new_event_path, :class => "btn btn-outline-primary" %>
 
 <% end %>
+</div>

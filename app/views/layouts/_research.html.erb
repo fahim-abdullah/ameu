@@ -1,0 +1,32 @@
+<!--::blog_part start::-->
+    <section class="blog_part padding_bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-8">
+                    <div class="section_tittle text-center">
+                        <h2>AMEU Research</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <% Econsider.all.order("id desc").limit(3).each do |econ| %>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_blog">
+                        <div class="appartment_img">
+                            <%= image_tag econ.postimg.url %>
+                        </div>
+                        <div class="single_appartment_content">
+                            <h4><%= econ.title %></h4>
+                            <p class="lead"><%= econ.post_heading %></p>
+                            <p class="e-author">By <%= econ.author %></p>
+                            <%= link_to 'Read More', econsider_path(econ), class: 'btn_2 py-2' %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </section>
+<!--::blog_part end::-->

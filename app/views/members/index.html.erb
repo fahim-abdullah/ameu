@@ -1,220 +1,551 @@
-<div class="bg" id="leadership-top-holder">
-    <div class="heading-holder container" align="center">
-        <h1 class="general-heading">Leadership</h1>
-        <p class="sub-heading">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-    </div>
-</div>
+<!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2>AMEU Leadership</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- breadcrumb start-->
 
 <div class="container">
     <div class="event-btn-holder" align="center">
-        <div class="col-12 tab">
-            <button class="btn col-4 col-md-2 event-status past tablinks" onclick="openOffice(event, 'iac')">IAC</button>
-            <div class="col-1"></div>
-            <button class="btn col-4 col-md-2 event-status upcoming tablinks" onclick="openOffice(event, 'uk-ireland')" id="defaultOpen">UK &amp; Ireland</button>
-            <div class="col-1"></div>
-            <button class="btn col-4 col-md-2 event-status past tablinks" onclick="openOffice(event, 'malaysia')">Malaysia</button>
+        <div class="row tab">
+            <!-- <button class="btn col-4 col-md-2 event-status past tablinks" onclick="openOffice(event, 'iac')">IAC</button> -->
+            
+            <button class="btn col-5 col-md-3 event-status upcoming tablinks" onclick="openOffice(event, 'uk-ireland')" id="defaultOpen">UK &amp; Ireland</button>
+            <div class="col"></div>
+            <button class="btn col-5 col-md-3 event-status past tablinks" onclick="openOffice(event, 'malaysia')">Malaysia</button>
             
         </div>
     </div>
 
     <section id="uk-ireland" class="tabcontent">
-        <div class="row">
+        <div class="row justify-content-center">
+
             <h2 class="general-heading col-12">Presidential Office</h2>
-            <div class="col-md-3 col-12">
-            </div>
-            <div class="col-md-3 col-12">
-                <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="http://philadelphiacontemporary.org/wp-content/uploads/2018/11/david-van-der-leer-portrait-01-square-780x780.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
-                    <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
-                    </div>
-                    
-                </div>
-            </div>
+            <% @uk.where("office = 'Presidential Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="http://www.solstreamstudios.com/ss/wp-content/uploads/2015/11/Portrait-17-JRH-5018-PE-square.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-            <div class="col-md-3 col-12">
-            </div>
+            <% end %>
             
-            <h2 class="general-heading col-12">Secreterial Office</h2>
-            
-            <div class="col"></div>
+            <h2 class="general-heading col-12">Secretarial Office</h2>
+            <% @uk.where("office = 'Secretarial Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://i1.wp.com/aslm.asia/wp-content/uploads/2018/11/portrait-square-03.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
+            <% end %>
             
+            <h2 class="general-heading col-12">Finance Office</h2>
+            <% @uk.where("office = 'Finance Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://static1.squarespace.com/static/5a061154d74cff1fd30fb730/t/5a25ca4971c10bc878729c2d/1512426082558/CH-Portrait-Square.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-            <div class="col-md-3 col-12">
-                <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://photos.peterhurley.com/sites/default/files/uploads/peter-hurley-headshot-square2.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
-                    <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col"></div>
-            
+            <% end %>
+
             <h2 class="general-heading col-12">Corporate Relations Office</h2>
-            
+            <% @uk.where("office = 'Corporate Relations Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://www.onlinepictureproof.com/media/resize/1000/1000/media/gallery/1201-graham-easton-16April15-9108s-square-74f4.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-            
+            <% end %>
+
+            <h2 class="general-heading col-12">Events Office</h2>
+            <% @uk.where("office = 'Events Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="http://farm5.static.flickr.com/4129/4986127412_01a065384b.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-            
-            <div class="col-md-3 col-12">
-                <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRatlumt49vl3KbVEd_7ZUCgPAIDP9d5n_h2BNe-7Jzt-NcpFqsrQ" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
-                    <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-md-3 col-12">
-                <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
-                    <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
-                    </div>
-                    
-                </div>
-            </div>
+            <% end %>
             
             <h2 class="general-heading col-12">Human Capital &amp; Internal Affairs Office</h2>
-            <div class="col"></div>
+            <% @uk.where("office = 'Internal Affairs Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://s3-us-west-2.amazonaws.com/lightstalking-assets/wp-content/uploads/2010/02/15233618/square.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Marketing Office</h2>
+            <% @uk.where("office = 'Marketing Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <img class="rounded-circle" src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU3Nzk2NTA0Njc1ODIwNTQ5/rebbeca-marie-gomez-aka-becky-g-poses-for-a-portrait-at-the-2017-latin-american-music-awards-at-dolby-theatre-on-october-25-2017-in-hollywood-california-photo-by-gabriel-olsen_getty-images-square.jpg" width="60%" />
-                    <p class="member-name">Django Dunhill</p>
-                    <p class="member-title">Vice President</p>
-                    
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">
-                        <p><i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="far fa-envelope"></i></p>
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-            <div class="col"></div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Research Office</h2>
+            <% @uk.where("office = 'Research Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            
+        </div>
+    </section>
+
+    <section id="malaysia" class="tabcontent">
+        <div class="row justify-content-center">
+
+            <h2 class="general-heading col-12">Presidential Office</h2>
+            <% @my.where("office = 'Presidential Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            
+            <h2 class="general-heading col-12">Secretarial Office</h2>
+            <% @my.where("office = 'Secretarial Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            
+            <h2 class="general-heading col-12">Finance Office</h2>
+            <% @my.where("office = 'Finance Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Corporate Relations Office</h2>
+            <% @my.where("office = 'Corporate Relations Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Events Office</h2>
+            <% @my.where("office = 'Events Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            
+            <h2 class="general-heading col-12">Human Capital &amp; Internal Affairs Office</h2>
+            <% @my.where("office = 'Internal Affairs Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Marketing Office</h2>
+            <% @my.where("office = 'Marketing Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+
+            <h2 class="general-heading col-12">Research Office</h2>
+            <% @my.where("office = 'Research Office'").each do |member| %>
+            <div class="col-md-3 col-12">
+                <div class="card member-card" align="center">
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <p class="member-name"><%= "#{member.name}"%></p>
+                    <p class="member-title"><%= member.designation %></p>
+                    <div class="member-social">
+                        <p>
+                            <% if member.facebook.length > 1 %>
+                            <%= link_to "#{member.facebook}" do %>
+                                <i class="fab fa-facebook-f"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.linkedin.length > 1 %>
+                            <%= link_to "#{member.linkedin}" do %>
+                                <i class="fab fa-linkedin-in"></i>
+                            <% end %>
+                            <% end %>
+
+                            <% if member.email.length > 1 %>
+                            <%= mail_to "#{member.email}" do %>
+                                <i class="far fa-envelope"></i>
+                            <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
             
         </div>
     </section>

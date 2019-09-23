@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
 	def new 
 		@event = Event.new
-		redirect_to all_events_path
+		# redirect_to all_events_path
 	end
 
 	def create

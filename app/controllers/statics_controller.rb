@@ -18,4 +18,7 @@ class StaticsController < ApplicationController
 	def under_development 
 	end
 
+	def landing 
+	end
+
 end

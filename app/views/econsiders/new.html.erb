@@ -1,12 +1,13 @@
+<div class="jumbotron">
 <%= form_for @econsider do |f| %>
 
     <label>Title</label>
     <%= f.text_field :title, class: "col-md-2 col form-control" %>
 
-    <label>Image</label>
+    <label>Image - Must be in ratio 2:1 (Width x Height) </label>
     <%= f.file_field :postimg, class: "col-md-2 col form-control" %>
 
-    <label>Post heading</label>
+    <label>Sub heading</label>
     <%= f.text_field :post_heading, class: "col-md-2 col form-control" %>
 
     <label>Author</label>
@@ -19,3 +20,4 @@
     <%= link_to "Back", new_event_path, :class => "btn btn-outline-primary" %>
 
 <% end %>
+</div>

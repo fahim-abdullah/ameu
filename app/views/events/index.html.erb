@@ -1,11 +1,26 @@
-<div class="bg">
-    <div class="event-top-holder">
-        <div class="heading-holder container">
-            <h1 class="general-heading">Our Events</h1>
-            <p class="sub-heading">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Cras justo odio.</p>
+<style type="text/css">
+    .event_part a {
+        text-decoration: none;
+        color: black;
+    }
+
+</style>
+
+<!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2>Our Events</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+<!-- breadcrumb start-->
 
 <div class="container">
     <div class="event-btn-holder" align="center">
@@ -18,99 +33,61 @@
 
     <!-- Upcoming -->
 
-    <section id="upcoming" class="tabcontent">
+    <section id="upcoming" class="tabcontent event_part py-4" >
         <div class="row">
-
-            <% if @upcoming.present? %>
-            <% @upcoming.each do | event | %>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <%= image_tag(event.eventpic.url, class: "card-img-top img-fluid", height: "160px", width: "100%") %>
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title"><%= event.title%></h5>
-                        <p class="card-text-when"><%= event.datetime.to_datetime.strftime("%A, %b %m - %I:%M %p") %>
-                        </p>
-                        <p class="card-text-venue"><%= event.venue %></p>
+            <% Event.all.each do | event | %>
+                <% if event.datetime.to_time > Time.now %>
+                <%= link_to event.link, class: "col-sm-6" do %>
+                    <div class="single_event media">
+                        <%= image_tag event.eventpic.url, width: "225px", class: "align-self-center" %>
+                        <div class="tricker"><%= event.datetime.to_time.strftime("%I:%M %p") %></div>
+                        <div class="media-body align-self-center">
+                            <h5 class="mt-0"><%= event.title %></h5>
+                            <p><i class="fas fa-map-marker-alt"></i> <%= event.venue %></p>
+                            <ul>
+                                <li><span><%= event.datetime.to_time.strftime("%d %b %Y") %></span>Date</li>
+                                <li><span><%= event.datetime.to_time.strftime("%A") %></span>Day</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <%= link_to "Find Out More!", event.link, class: "col btn text-white", target: "_blank" %>
-                    </div>
-                </div>
-            </div>
-            <% end %>
-
-            <% else %>
-
-            <div class="col-12 shadow-sm jumbotron bg-light py-4">
-                <h3 class="light">Hey there... We do not have any upcoming events. Stay tuned and feel free to check our previous events!</h3>    
-            </div>
-            
+                <% end %>
+                <% end %>
             <% end %>
         </div>
     </section>
 
     <!-- Past -->
-    <section id="past" class="tabcontent">
-        <div class="row">
-            <% @past.each do | event | %>
-            <div class="col-md-4 col-12">
-                <div class="card">
-                    <%= image_tag(event.eventpic.url, class: "card-img-top img-fluid", height: "160px", width: "100%") %>
-                    <div class="card-body" style="height: 180px; padding-bottom: 0;">
-                        <h5 class="card-title"><%= event.title%></h5>
-                        <p class="card-text-when"><%= event.datetime.to_datetime.strftime("%A, %b %m - %I:%M %p") %>
-                        </p>
-                        <p class="card-text-venue"><%= event.venue %></p>
-                    </div>
-                    <div class="card-body" style="padding-top: 0;">
-                        <%= link_to "Find Out More!", event.link, class: "col btn text-white", target: "_blank" %>
-                    </div>
-                </div>
-            </div>
-            <% end %>
-        </div>
+    <section id="past" class="tabcontent event_part pt-3">
+        <%= render 'layouts/event/past' %>
     </section>
-    <div class="row">
-        <hr class="col-md-4 col-6 pt-3 pb-3">    
-    </div>
     
+    <section class="mb-4 pb-4">
     <h1 class="section-heading col-12 pt-0 mt-0">Talk with International Advisory Council</h1>
     
+    <% Dialogue.all.each do |dialogue| %>
     <div class="row">
-        <div class=" col-12">
-            <div class="jumbotron iac-cards">
+        <div class="col-12">
+            <div class="jumbotron iac-cards my-2">
                 <div class="row">
-                    <div class="col-md-4 col-12">
-                        <img src="https://pbs.twimg.com/media/Dmbvv_hX4AAii8i.jpg" class="img-fluid" />
+                    <div class="col-md-4 col-12">                        
+                        <%= image_tag dialogue.dialoguepic.url, class: "img-fluid" %>
                     </div>
 
                     <div class="col-md-7 col my-auto">
-                        <h2 class="card-title"><span style="font-family: 'Medium';">Your Ego is Limiting your upside</span></h2>
-                        <p class="card-title">The GaryVee Audio Experience @ ROKU</p>
-                        <button class="btn btn-primary">Play Video</button>
+                        <h2 class="card-title pt-4 pb-0"><span class="medium"><%= dialogue.title %></span></h2>
+                        <p class="card-title my-0"><%= dialogue.interviewee %></p>
+                        
+                        <%= link_to "Play Video", dialogue.video_link, :class => "btn btn-primary mt-2 mb-4", target: "_blank" %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="row">
-        <div class=" col-12">
-            <div class="jumbotron iac-cards">
-                <div class="row">
-                    <div class="col-md-4 col-12">
-                        <img src="https://pbs.twimg.com/media/Dmbvv_hX4AAii8i.jpg" class="img-fluid" />
-                    </div>
-                    
-                    <div class="col-md-7 col my-auto">
-                        <h2 class="card-title"><span style="font-family: 'Medium';">Your Ego is Limiting your upside</span></h2>
-                        <p class="card-title">The GaryVee Audio Experience @ ROKU</p>
-                        <button class="btn btn-primary">Play Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <% end %>
+
+    </section>
+    <br><br>
+
 </div>
 
 <script type="text/javascript">

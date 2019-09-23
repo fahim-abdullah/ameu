@@ -1,0 +1,86 @@
+<%= render 'layouts/new_nav' %>
+
+<!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+                    <div class="banner_text text-center">
+                        <div class="banner_text_iner">
+                            <h1>Association of Malaysian <br> Economics Undergraduates </h1>
+                            <p>We are a professional non-profit student-run organization which congregates aspiring Malaysian undergraduates who are passionate about Economics related pursuits in the UK and Ireland.</p>
+<!--                            <a href="#" class="btn_2">Learn More</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    
+                    <div class="banner_video">
+                        <div class="banner_video_iner" align="center">
+                            <img src="assets/new/opt-2.png" width="95%">        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- banner part start-->
+
+<%= render 'layouts/care' %>
+<%= render 'layouts/impact' %>
+
+<!-- intro_video_bg start-->
+    <br><br><br><br><br>
+    <section class="intro_video_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-10">
+                    <div class="intro_video_iner text-center">
+                        <h2 class="mb-2">Meet our Team</h2>
+                        <p class="lead">Our team members are our greatest asset. As unique as we are individually, we pride ourselves on our strategic, integrated approach to public relations and the results it delivers. Get to know the talented individuals who power AMEU.</p>
+                        <%= link_to "View Members", members_path, class: "btn_2" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- intro_video_bg part start-->
+
+<!--::event_part start::-->
+    <section class="event_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-8">
+                    <div class="section_tittle">
+                        <h2>Upcoming Event</h2>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <% Event.all.each do | event | %>
+                    <% if event.datetime.to_time > Time.now %>
+                    <div class="col-sm-6">
+                        <div class="single_event media">
+                            <%= image_tag event.eventpic.url, width: "225px", class: "align-self-center" %>
+                            <div class="tricker"><%= event.datetime.to_time.strftime("%I:%M %p") %></div>
+                            <div class="media-body align-self-center">
+                                <h5 class="mt-0"><%= event.title %></h5>
+                                <p><i class="fas fa-map-marker-alt"></i> <%= event.venue %></p>
+                                <ul>
+                                    <li><span><%= event.datetime.to_time.strftime("%d %b %Y") %></span>Date</li>
+                                    <li><span><%= event.datetime.to_time.strftime("%A") %></span>Day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </section>
+<!--::event_part end::-->
+
+<%= render 'layouts/research' %>
+
+<%= render 'layouts/partners' %>

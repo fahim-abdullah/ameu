@@ -1,0 +1,61 @@
+<header class="main_menu home_menu">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html"> <img src="https://lh4.googleusercontent.com/MMRdjAJtoocInFd7jFrcJ7XPRV3l9qTqF1AJfXVlV53EkL_OBF_rf6AhrWnzatL2HZb-5UqySPDoO9v0Wnet0VWj5Th6C8pbNsbM3jduOiOc8w-xuirLRwSe-ey04AH7Q4J1YdXa" alt="logo" width="150px"> </a>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="" >
+                        <span class="ti-menu"></span>
+                    </button>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgb(120,120,120); border-radius:2px; padding: 4px 8px">
+                        <%= image_tag("menu-ham.png", width: '28px') %>
+                    </button>
+
+                    <div class="collapse navbar-collapse main-menu-item justify-content-end"
+                        id="navbarSupportedContent">
+                        <ul class="navbar-nav align-items-center">
+                            <li class="nav-item">
+                                <%= link_to "Home", landing_path, :class => 'nav-link' %>
+                            </li>
+                            <li class="nav-item">
+                                <%= link_to "About", about_path, :class => 'nav-link' %>
+                            </li>
+                            <li class="nav-item">
+                                <%= link_to "Events", events_path, :class => 'nav-link' %>
+                            </li>
+                            <li class="nav-item">
+                                <%= link_to "Leadership", members_path, :class => 'nav-link' %>
+                            </li>
+                            <li class="nav-item">
+                                <%= link_to "Research", econsiders_path, :class => 'nav-link' %>
+                            </li>
+
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pages
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="Event.html">Event</a>
+                                    <a class="dropdown-item" href="elements.html">Elements</a>
+                                </div>
+                            </li> -->
+
+                            <li class="nav-item">
+                                <%= link_to "Contact", contact_path, :class => 'nav-link', id: "contact-btn" %>
+                            </li>
+<!--
+                            <li class="d-none d-lg-block">
+                                <a class="btn_3 p-2" href="#">join us</a>
+                            </li>
+-->
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
