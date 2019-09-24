@@ -1,7 +1,7 @@
 <% Member.all.each do |member| %>
     <div class="col-md-3 col-12">
         <div class="card member-card" align="center">
-            <%= image_tag member.profpic.url, width: "60%", class: "rounded-circle" %>
+            <%= member.profpic.url %>
             <p class="member-name"><%= member.name %></p>
             <p class="member-title"><%= member.designation %></p>
             
