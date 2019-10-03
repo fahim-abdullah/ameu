@@ -1,18 +1,41 @@
-<%= form_for @dialogue do |f| %>
+<style type="text/css">
+    label {
+        font-family: "Medium";
+    }
+    footer {
+        margin-top: 80px;
+    }
+</style>
 
-    <label>Title</label>
-    <%= f.text_field :title, class: "col-md-2 col form-control" %>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Edit Dialogue</h1>
+            <hr>
+        </div>
+    </div>
 
-    <label>Image</label>
-    <%= f.file_field :dialoguepic, class: "col-md-2 col form-control" %>
+    <div class="row mb-4">
+        <div class="col-md-5 col-12 py-4">
+        <%= form_for @dialogue do |f| %>
 
-    <label>Interviewee</label>
-    <%= f.text_field :interviewee, class: "col-md-2 col form-control" %>
+        <label>Title</label>
+        <%= f.text_field :title, class: "col form-control" %>
 
-    <label>Video Link</label>
-    <%= f.text_field :video_link, class: "col-md-2 col form-control" %>
+        <label>Image <span class="text-danger">(Must be 2:1 W x H)</span></label>
+        <%= f.file_field :dialoguepic, class: "col form-control" %>
 
-    <%= f.submit class: "btn btn-success" %>
-    <%= link_to "Back", new_event_path, :class => "btn btn-outline-primary" %>
+        <label>Interviewee</label>
+        <%= f.text_field :interviewee, class: "col form-control" %>
 
-<% end %>
+        <label>Video Link</label>
+        <%= f.text_field :video_link, class: "col form-control" %>
+
+        <%= f.submit class: "btn btn-success" %>
+        <%= link_to "Back", all_dialogues_path, :class => "my-3 btn btn-outline-primary" %>
+
+        <% end %>
+        </div>
+    </div>
+</div>

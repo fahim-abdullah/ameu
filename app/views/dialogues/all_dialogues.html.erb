@@ -1,0 +1,38 @@
+<style type="text/css">
+    footer {
+        margin-top: 100px;
+    }
+</style>
+
+<br><br><br>
+<div class="container table-container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Dialogues Table</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table id="dialogues-table" class="display">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Interviewee</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            <% Dialogue.all.each do | dialogue | %>
+            <tbody>
+                <tr>
+                    <td><%= dialogue.title %></td>
+                    <td><%= dialogue.interviewee %></td>
+                    <td><%= link_to 'Edit', edit_dialogue_path(dialogue), class: 'btn btn-warning' %>
+                        <%= link_to 'Delete', dialogue_path(dialogue), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %></td>
+                </tr>
+            </tbody>
+            <% end %>
+            </table>
+        </div>
+    </div>
+</div>

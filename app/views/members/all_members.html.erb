@@ -1,20 +1,40 @@
-<% Member.all.each do |member| %>
-    <div class="col-md-3 col-12">
-        <div class="card member-card" align="center">
-            <%= member.profpic.url %>
-            <p class="member-name"><%= member.name %></p>
-            <p class="member-title"><%= member.designation %></p>
-            
-            <div class="member-social">
-                <p><a href="<%= member.facebook %>"><i class="fab fa-facebook-f"></i></a>
-                <a href="<%= member.linkedin %>"><i class="fab fa-linkedin-in"></i></a>
-                <a href="<%= member.twitter %>"><i class="fab fa-twitter"></i></a>
-                <a href="<%= member.ig %>"><i class="fab fa-instagram"></i></a>
-                <a data-toggle="tooltip" title="<%= member.email %>"><i class="far fa-envelope"></i></a></p>
-            </div>
+<style type="text/css">
+    footer {
+        margin-top: 100px;
+    }
+</style>
+
+<br><br><br>
+<div class="container table-container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Members Table</h1>
+            <hr>
         </div>
     </div>
-    <%= link_to 'Edit', edit_member_path(member), class: 'btn btn-warning' %>
-    <%= link_to 'Show', member_path(member), class: 'btn btn-primary' %>
-    <%= link_to 'Delete', member_path(member), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
-<% end %>
+    <div class="row">
+        <div class="col-12">
+            <table id="members-table" class="display">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Region</th>
+                        <th>Office</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            <% Member.all.each do |member| %>
+            <tbody>
+                <tr>
+                    <td><%= member.name %></td>
+                    <td><%= member.region %></td>
+                    <td><%= member.office %></td>
+                    <td><%= link_to 'Edit', edit_member_path(member), class: 'btn btn-warning' %>
+                        <%= link_to 'Delete', member_path(member), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %></td>
+                </tr>
+            </tbody>
+            <% end %>
+            </table>
+        </div>
+    </div>
+</div>

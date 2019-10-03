@@ -16,8 +16,17 @@
 //= require jquery3
 //= require popper
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require jquery.dataTables.min
 //= require_tree .
 
 $ (function () {
 	AOS.init ();
 });
+
+$( document ).on('turbolinks:load', function() {
+  $('#econsiders-table').DataTable();
+  $('#events-table').DataTable();
+  $('#dialogues-table').DataTable();
+  $('#members-table').DataTable();
+} );

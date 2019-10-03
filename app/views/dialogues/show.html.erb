@@ -1,4 +1,39 @@
-<p><%= @dialogue.title %></p>
-<%= image_tag @dialogue.dialoguepic.url, width: "100px" %>
-<p><%= @dialogue.interviewee %></p>
-<p><%= @dialogue.video_link %></p>
+<style type="text/css">
+    label {
+        font-family: "Medium";
+    }
+    footer {
+    	margin-top: 80px;
+    }
+</style>
+
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Showing Dialogue</h1>
+            <hr>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron iac-cards my-2">
+                <div class="row">
+                    <div class="col-md-4 col-12">                        
+                        <%= image_tag @dialogue.dialoguepic.url, class: "img-fluid" %>
+                    </div>
+
+                    <div class="col-md-7 col my-auto">
+                        <h2 class="card-title pt-4 pb-0"><span class="medium"><%= @dialogue.title %></span></h2>
+                        <p class="card-title my-0"><%= @dialogue.interviewee %></p>
+                        
+                        <%= link_to "Play Video", @dialogue.video_link, :class => "btn btn-primary mt-2 mb-4", target: "_blank" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

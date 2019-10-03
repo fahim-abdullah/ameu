@@ -5,6 +5,9 @@ class DialoguesController < ApplicationController
 	def index
 	end
 
+	def all_dialogues
+	end
+
 	def new 
 		@dialogue = Dialogue.new
 	end

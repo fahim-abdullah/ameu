@@ -1,38 +1,73 @@
-<div class="jumbotron">
-<%= form_for @member do |f| %>
+<style type="text/css">
+    label {
+        font-family: "Medium";
+    }
+    footer {
+        margin-top: 100px;
+    }
+</style>
 
-    <label>Region</label>
-    <%= f.text_field :region, class: "col-md-2 col form-control" %>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Create New Member</h1>
+            <hr>
+        </div>
+    </div>
 
-    <label>Office</label>
-    <%= f.text_field :office, class: "col-md-2 col form-control" %>
+    <div class="row">
+        <div class="col-md-5 col-12 py-4">
+        <%= form_for @member do |f| %>
 
-    <label>Headshot</label>
-    <%= f.file_field :profpic, class: "col-md-2 col form-control" %>
+            <label>Name</label>
+            <%= f.text_field :name, class: "col form-control" %>
+        
+            <label>Headshot</label>
+            <%= f.file_field :profpic, class: "col form-control" %>
 
-    <label>Name</label>
-    <%= f.text_field :name, class: "col-md-2 col form-control" %>
+            <label>Designation</label>
+            <%= f.text_field :designation, class: "col form-control" %>
 
-    <label>Designation</label>
-    <%= f.text_field :designation, class: "col-md-2 col form-control" %>
+            <label>Region</label>
+            <%= f.text_field :region, class: "col form-control", list: "regions" %>
+            <datalist id="regions">
+                <option>UK</option>
+                <option>MY</option>
+            </datalist>
 
-    <label>Facebook</label>
-    <%= f.text_field :facebook, class: "col-md-2 col form-control" %>
+            <label>Office</label>
+            <%= f.text_field :office, class: "col form-control", list: "offices" %>
+            <datalist id="offices">
+                <option>Presidential Office</option>
+                <option>Secretarial Office</option>
+                <option>Finance Office</option>
+                <option>Corporate Relations Office</option>
+                <option>Events Office</option>
+                <option>Human Capital & Internal Affairs Office</option>
+                <option>Marketing Office</option>
+                <option>Research Office</option>
+            </datalist>
 
-    <label>Linkedin</label>
-    <%= f.text_field :linkedin, class: "col-md-2 col form-control" %>
+            <label>Facebook</label>
+            <%= f.text_field :facebook, class: "col form-control" %>
 
-    <label>Twitter</label>
-    <%= f.text_field :twitter, class: "col-md-2 col form-control" %>
+            <label>Linkedin</label>
+            <%= f.text_field :linkedin, class: "col form-control" %>
 
-    <label>Instagram</label>
-    <%= f.text_field :ig, class: "col-md-2 col form-control" %>
+            <label>Twitter</label>
+            <%= f.text_field :twitter, class: "col form-control" %>
 
-    <label>Email</label>
-    <%= f.text_field :email, class: "col-md-2 col form-control" %>
+            <label>Instagram</label>
+            <%= f.text_field :ig, class: "col form-control" %>
 
-    <%= f.submit class: "btn btn-success" %>
-    <%= link_to "Back", new_event_path, :class => "btn btn-outline-primary" %>
+            <label>Email</label>
+            <%= f.text_field :email, class: "col form-control" %>
 
-<% end %>
+            <%= f.submit class: "btn btn-success" %>
+            <%= link_to "Back", new_event_path, :class => "my-3 btn btn-outline-primary" %>
+
+        <% end %>
+        </div>
+    </div>
 </div>

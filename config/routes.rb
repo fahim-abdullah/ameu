@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get 'all_events', to: 'events#all_events'
 	get 'all_members', to: 'members#all_members'
 	get 'all_econsiders', to: 'econsiders#all_econsiders'
+	get 'all_dialogues', to: 'dialogues#all_dialogues'
 
 	resources :events
 	resources :dialogues

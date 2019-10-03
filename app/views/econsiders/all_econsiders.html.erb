@@ -1,29 +1,40 @@
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+<style type="text/css">
+    footer {
+        margin-top: 100px;
+    }
+</style>
 
-      <%= Econsider.all.each do |econsider| %>
-
-      <div class="post-preview">
-          <%= link_to econsider_path(econsider) do %>
-          <h2 class="post-title"><%= econsider.title %></h2>
-          <h3 class="post-subtitle"><%= econsider.post_heading %></h3>
-          <% end %>
-        
-        <p class="post-meta">Posted by <%= econsider.author %> on <%= econsider.created_at.strftime("%B %d, %Y") %></p>
-      </div>
-      <%= link_to 'Edit', edit_econsider_path(econsider), class: 'btn btn-warning' %>
-      <%= link_to 'Show', econsider_path(econsider), class: 'btn btn-primary' %>
-      <%= link_to 'Delete', econsider_path(econsider), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
-      <hr>
-      
-      <% end %>
-
+<br><br><br>
+<div class="container table-container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <h1 class="demi">Econsiders Table</h1>
+            <hr>
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-12">
+            <table id="econsiders-table" class="display">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Posted On</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            <% Econsider.all.each do |econsider| %>
+            <tbody>
+                <tr>
+                    <td><%= econsider.title %></td>
+                    <td><%= econsider.author %></td>
+                    <td><%= econsider.created_at.strftime("%B %d, %Y") %></td>
+                    <td><%= link_to 'Edit', edit_econsider_path(econsider), class: 'btn btn-warning' %>
+                        <%= link_to 'Delete', econsider_path(econsider), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %></td>
+                </tr>
+            </tbody>
+            <% end %>
+            </table>
+        </div>
+    </div>
 </div>
-
-<script>
-  document.getElementById('text').style.display = 'hidden';
-</script>
