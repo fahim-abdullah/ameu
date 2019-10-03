@@ -47,6 +47,18 @@
                             <li class="nav-item">
                                 <%= link_to "Contact", contact_path, :class => 'nav-link', id: "contact-btn" %>
                             </li>
+
+                            <% if logged_in? %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog"></i> Admin</a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <%= link_to "Admin Panel", admin_panel_path, :class => 'dropdown-item' %>
+                                    <%= link_to "Logout", logout_path, method: :delete, :class => 'dropdown-item' %>
+                                </div>
+                            </li>
+                            <% end %>
 <!--
                             <li class="d-none d-lg-block">
                                 <a class="btn_3 p-2" href="#">join us</a>

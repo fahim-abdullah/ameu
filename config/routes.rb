@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	get 'about', to: 'statics#about'
 	get 'contact', to: 'statics#contact'
 	get 'thankyou', to: 'statics#thankyou'
+	get 'admin_panel', to: 'statics#panel'
 
 	get 'summit', to: 'statics#summit'
 	get 'under_development', to: 'statics#under_development'
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
 
 	get 'ameuxadminsignup', to: 'users#new'
 	resources :users, except: [:new]
+
+	get 'login', to: 'sessions#new'
+	post 'login', to: 'sessions#create'
+	delete 'logout', to: 'sessions#destroy'
 
 	resources :events
 	resources :dialogues
