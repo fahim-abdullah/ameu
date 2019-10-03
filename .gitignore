@@ -29,3 +29,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/public/uploads/dialogue
+/public/uploads/econsider
+/public/uploads/event
+/public/uploads/member
