@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 	get 'all_econsiders', to: 'econsiders#all_econsiders'
 	get 'all_dialogues', to: 'dialogues#all_dialogues'
 
+	get 'ameuxadminsignup', to: 'users#new'
+	resources :users, except: [:new]
+
 	resources :events
 	resources :dialogues
 	resources :members
