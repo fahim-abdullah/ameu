@@ -21,4 +21,7 @@ class StaticsController < ApplicationController
 	def landing 
 	end
 
+	def panel
+	end
+
 end

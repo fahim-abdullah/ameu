@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 	before_action :set_timezone
 	# before_action :red
+	before_action :require_user, except: [:index]
 
 	def index
 		@upcoming = Event.where('datetime > ?', Time.now)

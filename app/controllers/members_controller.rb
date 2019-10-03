@@ -1,13 +1,11 @@
 class MembersController < ApplicationController
 	before_action :set_timezone
 	# before_action :red
+	before_action :require_user, except: [:index]
 
 	def index
 		@uk = Member.all.where("region = 'UK'")
 		@my = Member.all.where("region = 'MY'")
-	end
-
-	def all
 	end
 
 	def new 

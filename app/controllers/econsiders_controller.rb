@@ -1,12 +1,10 @@
 class EconsidersController < ApplicationController
 	before_action :set_timezone
 	# before_action :red
+	before_action :require_user, except: [:index, :show]
 
 	def index
 		@econsiders = Econsider.all.order("created_at DESC")
-	end
-
-	def all
 	end
 
 	def new 
