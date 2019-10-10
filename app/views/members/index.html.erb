@@ -33,7 +33,8 @@
             <% @uk.where("office = 'Presidential Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
-                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
+                    <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%", :style => "display:block; margin: 0 auto;" %>
+
                     <p class="member-name"><%= "#{member.name}"%></p>
                     <p class="member-title"><%= member.designation %></p>
                     <div class="member-social">

@@ -24,9 +24,3 @@ $ (function () {
 	AOS.init ();
 });
 
-$( document ).on('turbolinks:load', function() {
-  $('#econsiders-table').DataTable();
-  $('#events-table').DataTable();
-  $('#dialogues-table').DataTable();
-  $('#members-table').DataTable();
-} );
