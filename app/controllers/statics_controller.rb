@@ -1,4 +1,6 @@
 class StaticsController < ApplicationController
+	
+	before_action :require_user, only: :panel
 	# before_action :red, except: [:thankyou, :summit, :under_development, :contact]
 	def home 
 	end
