@@ -191,7 +191,7 @@
             <% end %>
             
             <h2 class="general-heading col-12">Human Capital &amp; Internal Affairs Office</h2>
-            <% @uk.where("office = 'Internal Affairs Office'").each do |member| %>
+            <% @uk.where("office = 'Human Capital & Internal Affairs Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
                     <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
@@ -453,7 +453,7 @@
             <% end %>
             
             <h2 class="general-heading col-12">Human Capital &amp; Internal Affairs Office</h2>
-            <% @my.where("office = 'Internal Affairs Office'").each do |member| %>
+            <% @my.where("office = 'Human Capital & Internal Affairs Office'").each do |member| %>
             <div class="col-md-3 col-12">
                 <div class="card member-card" align="center">
                     <%= image_tag member.profpic.url, class: "rounded-circle", width: "60%" %>
