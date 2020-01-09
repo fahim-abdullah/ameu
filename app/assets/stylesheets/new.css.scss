@@ -3627,7 +3627,7 @@ input:-internal-autofill-selected {
 .client_part .single_client_logo img:hover {
   filter: grayscale(0);
   -webkit-filter: grayscale(0);
-  transition: 0.2s ease-in-out;
+  /*transition: 0.2s ease-in-out;*/
 }
 
 /* line 75, ../../01 cl html template/03_jun 2019/183_Charity_html/sass/_elements.scss */
