@@ -11,7 +11,9 @@ set :branch, 'deploy'
 
 set :deploy_to, "/home/deployer/apps/ameunetwork.org"
 
-server 'server.ip.here', user: 'deployer', roles: %w{app db web}
+ask(:server_ip, 'What is server ip?', echo: true)
+
+server fetch(:server_ip), user: 'deployer', roles: %w{app db web}
 
 # role-based syntax
 # ==================
