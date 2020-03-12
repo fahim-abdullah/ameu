@@ -1,7 +1,7 @@
 class EconsidersController < ApplicationController
 	before_action :set_timezone
 	# before_action :red
-	before_action :require_user, except: [:index, :show]
+	before_action :require_user, except: [:index, :show, :new, :create]
 
 	def index
 		@econsiders = Econsider.all.order("created_at DESC")
@@ -13,8 +13,9 @@ class EconsidersController < ApplicationController
 
 	def create
 		@econsider = Econsider.new(econsider_params)
+    @econsider.user_id = current_user.id
 		if @econsider.save
-			redirect_to new_econsider_path
+			redirect_to econsider_url(@econsider)
 		else
 			render 'new'
 		end
