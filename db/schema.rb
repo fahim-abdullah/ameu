@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_10_03_210546) do
 
-  create_table "dialogues", force: :cascade do |t|
+  create_table "dialogues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "interviewee"
     t.string "video_link"
     t.string "dialoguepic"
   end
 
-  create_table "econsiders", force: :cascade do |t|
+  create_table "econsiders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "post_heading"
     t.string "author"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_210546) do
     t.integer "user_id"
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "datetime"
     t.string "venue"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_210546) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "members", force: :cascade do |t|
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "region"
     t.string "office"
     t.string "name"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_210546) do
     t.string "profpic"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.datetime "created_at", null: false
