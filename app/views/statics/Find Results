@@ -1,0 +1,16 @@
+Searching 10155 files for ".panel"
+
+/Users/fahimabdullah/Documents/closerFoundation/ameu/app/views/statics/summit.html.erb:
+  205  	}
+  206  
+  207: 	.panel {
+  208  		height: 800px;
+  209  	}
+  ...
+  242  			background-color: white;
+  243  		}
+  244: 		.panel {
+  245  			height: auto;
+  246  		}
+
+2 matches in 1 file
