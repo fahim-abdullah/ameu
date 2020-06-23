@@ -2,7 +2,7 @@
 lock "~> 3.12.0"
 
 set :application, "ameunetwork.org"
-set :repo_url, "git@github.com:mahfuz10/ameu.git"
+set :repo_url, "git@github.com:fahim-abdullah/ameu.git"
 
 append :linked_files, "config/database.yml", "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads"

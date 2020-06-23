@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-set :branch, 'deploy'
+set :branch, 'master'
 
 set :deploy_to, "/home/deployer/apps/ameunetwork.org"
 
